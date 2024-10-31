@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeetech Academy</title>
+    <link rel="icon" type="wha" href="/images/Zeetech-icon.jpeg" sizes="48x48">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+</head>
+<body>
+
+        <!-- Social Media Links -->
+        <div class="social-links">
+            <a href="https://www.facebook.com/zeeshan1839/" target="_blank" class="fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/zeetech_academy/" target="_blank" class="insta"><i class="fab fa-instagram"></i></a>
+            <a href="https://in.linkedin.com/in/zeetech-academy-ab870422a" target="_blank" class="linke"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    
+        <!-- WhatsApp Link -->
+        <a href="https://wa.me/919987651839" target="_blank" class="whatsapp-icon">
+            <img src="/images/WhatsApp_icon.png" alt="WhatsApp" />
+        </a>    
+
+
+
+<!-- Navbar -->
+<nav class="sticky-navbar">
+    <div class="header-container">
+        <div class="logo">
+            <a href="index.html"><img src="/images/Zeetech.jpeg" alt="Logo"></a>
+        </div>
+        <ul class="nav-list">
+            <li><a href="#" class="active-pg">Home</a></li>
+            <li class="dropdown">
+                <a href="#">Courses</a>
+                <ul class="dropdown-content">
+                    <a href="/courses/data-science.html">Data Science</a>
+                    <a href="/courses/data-analyst.html">Data Analyst</a>
+                    <a href="/courses/fullstack.html">Fullstack Development</a>
+                    <a href="/courses/software-test.html">Software Testing</a>
+                    <a href="/courses/digital-marketing.html">Digital Marketing</a>
+                    <a href="/courses/cloud-computing.html">Cloud Computing</a>
+                    <a href="/courses/stock-marketing.html">Stock Marketing</a>
+                    <a href="/courses/microsoft.html">Microsoft Office</a>
+                </ul>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <!-- <li><a href="#">Placements</a></li> -->
+            <li><a href="#">Blog</a></li>
+            <li><a href="conatct.html">Contact</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- Carousel container-->
+<div class="carousel">
+    <div class="carousel-item data-science-header">
+        <div class="banner">
+            <h1>Data Science Course</h1>
+            <p>Master the art of data analysis and unlock limitless career opportunities</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+    
+    <div class="carousel-item data-analyst-header">
+        <div class="banner">
+            <h1>Data Analyst Course</h1>
+            <p>Master the art of data analysis and help businesses make data-driven decisions.</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+    <div class="carousel-item cloud-computing-header">
+        <div class="banner">
+            <h1>Cloud Computing Course</h1>
+            <p>Master the future of computing with cloud technology and scale your career to new heights.</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+
+    <div class="carousel-item fullstack-header">
+        <div class="banner">
+            <h1>Fullstack Development Course</h1>
+            <p>Become a master in both front-end and back-end development, and build dynamic web applications</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+
+    <div class="carousel-item microsoft-office-header">
+        <div class="banner">
+            <h1>Microsoft Office Course</h1>
+            <p>Master the essential Microsoft Office tools for your career, from Word to Excel and PowerPoint.</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+
+    <div class="carousel-item digital-marketing-header">
+        <div class="banner">
+            <h1>Digital Marketing Course</h1>
+            <p>Learn the strategies and tools to succeed in the world of online marketing</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+
+    <div class="carousel-item software-testing-header">
+        <div class="banner">
+            <h1>Software Testing Course</h1>
+            <p>Become an expert in testing software and ensuring quality in the software development lifecycle.</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+
+    <div class="carousel-item stock-market-header">
+        <div class="banner">
+            <h1>Stock Market Course</h1>
+            <p>Master the strategies and tactics to become a successful trader in the stock market.</p>
+            <a href="/includes/conatct.html" class="cta-button">Join Now</a>
+        </div>
+    </div>
+    
+</div>
+
+
+
+  <!-- WELCOME -->
+  <div class="welcome-main" data-aos="fade-out">
+    <h3 class="welcome-heading">Welcome to the Zeetech Academy</h3>
+    <p class="welcome-heading-quote">Learn, adapt, and lead the future.</p>
+</div>
+<div class="class-info-div">
+    <p class="class-info" data-aos="fade-out">Empower your journey in the world of IT! At ZeeTech Academy, we offer innovative training and resources to help you excel in today’s dynamic digital landscape. Whether you're a beginner or an experienced professional looking to start your career or seeking to enhance your skills our expert-led courses are tailored and designed to cater and meet your individual learning needs.</p>
+</div>
+<!-- Training -->
+ <div class="main-training-part" data-aos="fade-up">
+    <h3 class="training">~ Training we offer ~</h3>
+    <p class="training-qoute">Mastery begins with consistent training.</p>
+</div>
+<div class="cards-container" data-aos="fade-right">
+    
+    <!-- Card 1 -->
+     <a href="/courses/fullstack.html">
+        <div class="course-card">
+            <i class="fa-solid fa-code"></i>
+            <h3>Fullstack Development</h3>
+        </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="/courses/data-analyst.html">
+        <div class="course-card">
+            <i class="fa-solid fa-chart-bar"></i>
+            <h3>Data Analyst</h3>
+        </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="/courses/data-science.html">
+        <div class="course-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>Data Science</h3>
+        </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="/courses/software-test.html">
+        <div class="course-card">
+            <i class="fa-solid fa-bug"></i>
+            <h3>Software Testing</h3>
+        </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="/courses/digital-marketing.html">
+        <div class="course-card">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3>Digital Marketing</h3>
+        </div>
+    </a>
+
+    <!-- Card 6 -->
+    <a href="/courses/stock-marketing.html">
+        <div class="course-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Stock Marketing</h3>
+        </div>
+    </a>
+
+    <!-- Card 7 -->
+    <a href="/courses/cloud-computing.html">
+        <div class="course-card">
+            <i class="fa-solid fa-cloud"></i>
+            <h3>Cloud Computing</h3>
+        </div>
+    </a>
+
+    <!-- Card 8 -->
+    <a href="/courses/microsoft.html">
+        <div class="course-card">
+            <i class="fa-solid fa-file-excel"></i>
+            <h3>Microsoft Office</h3>
+        </div>
+    </a>
+</div>
+
+
+    <!-- Services info  -->
+
+    <div class="our-services-main" data-aos="fade-up">
+        <h3 class="services">~ Our Services ~</h3>
+        <p class="services-quote">Your vision, our mission.</p>
+    </div>
+
+
+    <div class="services-container">
+        <div class="service-box" data-aos="flip-left">
+            <i class="fas fa-concierge-bell"></i>
+            <h3>Services</h3>
+            <ul>
+                <li>Custom Software Development</li>
+                <li>Web & Mobile App Development</li>
+                <li>IT Support and Consulting</li>
+                <li>Digital Marketing Services</li>
+            </ul>
+        </div>
+    
+        <div class="service-box" data-aos="flip-left">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h3>Training</h3>
+            <ul>
+                <li>comprehensive training programs</li>
+                <li>high-quality education</li>
+                <li>Skill Development Programs</li>
+                <li>practical experience</li>
+            </ul>
+        </div>
+    
+        <div class="service-box" data-aos="flip-left">
+            <i class="fas fa-briefcase"></i>
+            <h3>Placements</h3>
+            <ul>
+                <li>Job Placement Assistance</li>
+                <li>Internship Programs</li>
+                <li>Career Counseling</li>
+                <li>Industry Partnerships</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+     <!-- Footer Start -->
+<footer class="academy-footer">
+    <div class="footer-top">
+        <!-- Our Address Section -->
+        <div class="footer-column">
+            <h3>Our Address</h3>
+            <p>Landmark The Universe, Shop No. 3, Bypass Road, College, opp. Kalsekar, near Ewar Complex<br>Mumbra, Thane, Maharashtra 400612</p>
+        </div>
+
+        <!-- Our Courses Section -->
+        <div class="footer-column">
+            <h3>Our Courses</h3>
+            <ul>
+                <li><a href="/courses/data-science.html">Data Science</a></li>
+                <li><a href="/courses/data-analyst.html">Data Analyst</a></li>
+                <li><a href="/courses/fullstack.html">Fullstack Development</a></li>
+                <li><a href="/courses/software-test.html">Software Testing</a></li>
+                <li><a href="/courses/digital-marketing.html">Digital Marketing</a></li>
+                <li><a href="/courses/cloud-computing.html">Cloud Computing</a></li>
+                <li><a href="/courses/stock-marketing.html">Stock Marketing</a></li>
+                <li><a href="/courses/microsoft.html">Microsoft Office</a></li>
+            </ul>
+        </div>
+
+        <!-- Follow Us Section -->
+        <div class="footer-column">
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/zeetech_academy/"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/zeeshan1839/"><i class="fab fa-facebook"></i></a>
+                <a href="https://in.linkedin.com/in/zeetech-academy-ab870422a"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2024 Zeetech Academy. All Rights Reserved.</p>
+    </div>
+</footer>
+<!-- Footer End -->
+
+
+
+
+</body>
+<script src="/js/index.js"></script>
+</html> 
