@@ -1,0 +1,42 @@
+ {% load static %}
+ <br>
+ 
+ <div class="containerss">
+    <h1 style="color:black;">Meet Our Experts</h1>
+    <br>
+    <br>
+    <br>
+    <div class="slider-wrapper">
+         
+    
+      <div class="slider">
+        {% for i in instructors%}
+  
+        <div class="slider-content">
+        
+          <!-- First Loop -->
+          <div class="card">
+            <img src="{{i.image.url}}" alt="Yashwardhan Singh">
+            <h3 style="color:black;">Expert Name : {{ i.instructor_name }}</h3>
+            <p style="color:black;">Expert in : {{ i.designation }}</p>
+            <p style="color:black;" id="experience">Experience: {{ i.instructor_Exp }}</p>
+            <p style="color:black;" id="studentss">No of Students Trained: {{ i.no_of_student }}</p>
+          </div>
+        
+       
+        </div>
+          {% endfor %}
+      </div>
+
+     
+     
+    </div>
+  </div> 
+  <br>
+  <br>
+
+  
+ 
+
+
+ 

@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<br><br><br><br><br>
+
+<div class="containeerr">      
+  
+
+    <!-- Course Title -->
+    <h2>{{ single_course.course_name }}</h2>
+
+    <!-- Course Image -->
+    {% if single_course.image %}
+        <img src="{{ single_course.image.url }}" alt="{{ single_course.course_name }}" width="28%" ,height="200px">
+    {% else %}
+        <p>No image available for this course.</p>
+    {% endif %}
+
+<!-- Messages -->
+{% if messages %}
+ <div id="message-container" style="z-index: 9999; position: relative; color: #856404; padding: 15px; margin-bottom: 15px;">
+        {% for message in messages %}
+            <p style="
+                color: {% if message.tags == 'success' %}green{% elif message.tags == 'error' %}red{% else %}black{% endif %};
+                font-weight: bold;
+                background-color: #f1f1f1;
+                padding: 10px;
+                border: 1px solid #ccc;
+                display: inline-block;
+            ">
+                {{ message }}
+            </p>
+        {% endfor %}
+    </div>
+
+    <!-- Auto-hide message after 4 seconds -->
+    <script>
+        setTimeout(function() {
+            var msg = document.getElementById('message-container');
+            if (msg) {
+                msg.style.display = 'none';
+            }
+        }, 4000);
+    </script>
+{% endif %}
+
+<!-- Form -->
+<div class="forms">
+    <form method="POST" action="{% url 'broucher' id=single_course.id %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-nameee" name="first_name" placeholder="Enter First Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-nameee" name="last_name" placeholder="Enter Last Name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile No</label>
+            <input type="text" id="mobileee" name="mobile" placeholder="Enter 10-digit Mobile Number" required pattern="(\+91[\-\s]?)?[6789]\d{9}">
+        </div>
+
+        <div class="form-group">
+            <label for="email">EMAIL - ID</label>
+            <input type="email" id="emailll" name="email" placeholder="e.g. yourname@gmail.com" required>
+        </div>
+
+        <button type="submit" class="downloads-btn">Submit & Download Brochure</button>
+    </form>
+</div>
+
+{% if error %}
+    <p>{{ error }}</p>
+{% endif %}
+
+<!-- ✅ Brochure Auto-download JS -->
+{% if request.session.download_ready and broucher %}
+<script>
+    // Wait for DOM to load
+    window.addEventListener("DOMContentLoaded", function () {
+        // Auto download brochure
+        const link = document.createElement('a');
+        link.href = "{{ broucher.file.url }}";
+        link.download = "{{ broucher.title }}.pdf";
+        link.click();
+
+        // Clear download_ready flag in session via AJAX
+        fetch("{% url 'broucher' id=single_course.id %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: "clear_flag=1"
+        });
+    });
+</script>
+{% endif %}
+
+</div>
+<br>
+<br>
+<br>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

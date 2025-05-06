@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/councelling.css' %}">
+
+
+<br>
+<br>
+<br>
+
+
+  <div id="popup-messages" style="position: fixed; top:100px; left: 50%; transform: translateX(-50%); z-index: 9999;">
+    {% for message in messages %}
+      {% if 'popup' in message.tags %}
+      <div class="popup" style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#dc3545{% endif %};">
+        {{ message }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+
+ <div class="form-box">
+    <h2> Get Expert Career Advice </h2>
+   <div class="imagess">
+    <img src="{% static 'images/contactus2.jpg' %}" alt=""> </div>
+  <form method="post" action="{% url 'councelling' %}" enctype="multipart/form-data">
+    {% csrf_token%}
+    <input type="text" name="mobile" id="mobile" placeholder="Enter 10-digit Mobile Number">
+ 
+    <button type="submit" id="submittt">Submit</button>
+   </form>
+
+</div> 
+
+   <br>
+   <br>
+   <br>
+
+<script>
+  setTimeout(function() {
+      const popup = document.getElementById('popup-messages');
+      if (popup) {
+        popup.style.display = 'none';
+      }
+    }, 3000);  
+
+document.querySelector("form").addEventListener("submittt", function (e) {
+    const input = document.getElementById("mobile");
+    const mobile = input.value.trim();
+    const mobileRegex = /^[0-9]{10}$/;
+
+    if (!mobileRegex.test(mobile)) {
+        e.preventDefault(); // Stop submission
+        alert("Please enter a valid 10-digit mobile number.");
+    }
+});
+</script>
+
+
+{% endblock %}

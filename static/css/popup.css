@@ -1,0 +1,116 @@
+/* Popup form */
+.contact-popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.6);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Smooth transition */
+}
+
+.contact-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.form-group {
+    display: flex;
+    gap: 39px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.formm-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact-popup .boxs {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto 0 auto; /* Top margin and centered horizontally */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center content */
+    position: relative;
+}
+
+.contact-popup .boxs .form h1 {
+    color: #000000;
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.contact-popup .boxs .form .form-control,
+.contact-popup .boxs .form textarea {
+    width: 100%;
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-popup .boxs .form .form-control:focus,
+.contact-popup .boxs .form textarea:focus {
+    outline: none;
+    border: 1px solid  #e81818;
+    box-shadow: 0 0 5px rgba(233, 30, 99, 0.5);
+}
+
+.contact-popup .boxs .form .btn {
+    width: 40%;
+    margin: 10px auto;
+    background-color: #e81818;
+    border-radius: 25px;
+    height: 45px;
+    border: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    text-align: center;
+}
+
+.contact-popup .boxs .form .btn:hover {
+    background-color: #1a0153;
+}
+
+.contact-popup .boxs .form .btn:focus {
+    outline: none;
+}
+
+.contact-popup .boxs .form .close {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 30px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.contact-popup .boxs .form .close:hover {
+    color: #E91E63;
+}
+
+.error {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    color: red;
+    font-style: italic;
+    text-align: center;
+}

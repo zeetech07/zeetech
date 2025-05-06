@@ -1,0 +1,335 @@
+    {% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+       
+
+
+
+
+
+
+
+<!-- Popup Form Messages -->
+{% if messages %}
+  <div id="popup-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
+    {% for message in messages %}
+      {% if 'popup' in message.tags %}
+      <div style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#dc3545{% endif %};">
+        {{ message }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %} 
+
+   
+
+
+  <div class="contact-popup"> 
+        <div class="boxs">
+            <div class="form">
+                <form method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="close">&times;</div>
+                    <h1>Contact us</h1>
+                    <div class="form-group">
+                        <input type="text" placeholder="Firstname" class="form-control" name="first_name">
+                        <input type="text" placeholder="Lastname" class="form-control" name="last_name">
+                    </div>
+                    <div class="formm-group">
+                        <input type="email" placeholder="Email" class="form-control" name="email">
+                        <input type="number" placeholder="Phone number" class="form-control" name="mobile">
+                        <small class="error"></small>
+                    </div>
+                    <div>
+                        <textarea class="text" id="message" placeholder="Message...." name="message"></textarea>
+                    </div>
+                    <a href="{% url 'contact' %}"></a><button type="submit" class="btn">Submit</button></a>
+                </div>
+                </form>
+            </div>
+        </div>   
+
+    <!-- yaha navbar hai  -->
+
+<div class="bgimg">
+    <img src="{% static 'images/gif.jpg' %}" alt="Background">
+</div>
+
+
+{% if messages %}
+  <div id="normal-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
+    {% for message in messages %}
+      {% if 'normal' in message.tags %}
+      <div style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#dc3545{% endif %};">
+        {{ message }}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}
+
+<div class="containerrr">   
+    <!-- Right Section  -->
+    <div class="right-sectionnn">
+        <div class="form-containerrr">
+            <h2>Let's Talk About Growth</h2>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="input-group"> 
+                    <input type="text" name="first_name" id="first-namee" placeholder="First Name" required>
+                    <input type="text" name="last_name" id="last-namee" placeholder="Last Name" required>
+                </div>
+                <input type="email" id="emaill" name="email" placeholder="Email" required>
+                <input type="tel" id="mobilee" name="mobile" placeholder="Mobile Number" required> 
+                <button type="submit" name="contact_submit" class="sssubmit-btn">Submit</button>
+                <a href="{% url 'download_datascience_brochure' %}">
+                    <button type="button" class="broucherrr">Download Brochure</button>
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+ <!-- first time jo likha tha courses wala aquib wala code  -->
+
+ <section id="cours" class="course-section">
+    <h1 style="color:black;font-size:2 rem;">Our Courses</h1>
+    <div class="buttons">
+    <a href="{% url 'courses' %}"><button class="see-all-buttonn">See All</button></a>
+    </div>
+    <div class="course__container">
+
+        {% for course in course %}
+        <article class="course__article">
+            <div class="course__data">
+                <img src="{{ course.image.url }}" alt="course image" class="course__img">
+                <h1 class="card__title">{{ course.course_name }}</h1>
+                {% comment %} <div class="tech-stack"> 
+                    <span><i class="fa-brands fa-python"></i></span>
+                    <span><i class="fa-solid fa-robot"></i></span>
+                    <span><i class="fa-solid fa-chart-pie"></i></span>
+                    <span><i class="fa-solid fa-database"></i></span> 
+                </div> {% endcomment %}
+                <p class="course__description"><i class="fa-solid fa-clock"> </i> {{course.course_duration}} Online & Offline Training</p>
+                <div class="buttonss">
+                    <button style="border:none;" class="brochure-btnnn">
+                        <a href="{% url 'broucher' course.id %}" id="Download Brochure">Download Brochure <i class="fa-regular fa-file"></i></a>
+                    </button>
+                   <a style="text-decoration:none;" href="{% url 'detail' course.id %}"> <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button> </a>
+                                     
+                </div>
+            </div>
+        </article>
+    {% endfor %}
+
+    </div>
+
+    {% comment %} yeh pop up form hai for councelling wala  {% endcomment %}
+
+   
+   
+</section>
+        
+      
+        
+
+
+
+
+        {% include 'home/parameter.html' %}
+        <script src="{%  static 'js/parameter.js' %}" defer></script>
+
+        {% include 'home/career.html' %}
+        <script src="{%  static 'js/career.js' %}" defer></script>
+        
+        {% include 'home/roadmapp.html' %}
+
+        {% include 'home/services.html' %}
+
+        {% include 'home/course_slider.html' %}
+        <script src="{%  static 'js/course_slider.js' %}" defer></script>
+
+        {% include 'home/placement.html' %}
+        <script src="{%  static 'js/placement.js' %}" defer></script>
+
+        {% include 'home/faq.html' %}
+        <script src="{%  static 'js/faq.js' %}" defer></script>
+        
+        {% include 'home/companytieups.html' %}
+        <script src="{%  static 'js/companytieups.js' %}" defer></script>
+
+        {% include 'home/experts.html' %}
+      
+
+
+    <script>
+
+    setTimeout(function () {
+    var normal = document.getElementById('normal-messages');
+    if (normal) normal.style.display = 'none';
+
+    var popup = document.getElementById('popup-messages');
+    if (popup) popup.style.display = 'none';
+    }, 3000); 
+
+
+ //ye pop up wala start  hai// 
+            const contactPopup = document.querySelector(".contact-popup");
+            const closeBtn = document.querySelector(".close");
+            const form = document.querySelector("form");
+            const mobileInput = document.querySelector("input[name='mobile']");
+            const errorMessage = document.querySelector(".form-group .error"); // Existing Small Tag Ko Pakda
+            
+            // Popup Show after 5 Seconds
+            setTimeout(() => {
+                contactPopup.classList.add("show");
+            }, 8000);
+            
+            // Close Button Click
+            closeBtn.addEventListener("click", () => {
+                contactPopup.classList.remove("show");
+            });
+            
+            // Mobile Validation Function
+            function validateMobile() {
+                let mobileValue = mobileInput.value.trim();
+            
+                if (mobileValue === "") {
+                    errorMessage.textContent = "**Phone number is required**";
+                    errorMessage.style.color = "red";
+                    errorMessage.style.fontSize = "13px";
+                    return false;
+                } else if (!/^\d{10}$/.test(mobileValue)) {
+                    errorMessage.textContent = "**Please enter a valid 10 digit number**";
+                    errorMessage.style.color = "red";
+                    errorMessage.style.fontSize = "13px";
+                    return false;
+                } else {
+                    errorMessage.textContent = ""; // Error Remove
+                    return true;
+                }
+            }
+            
+            // Form Submit Only
+            form.addEventListener("submit", function (e) {
+                let isValid = validateMobile();
+            
+                if (!isValid) {
+                    e.preventDefault(); // Form Submit Stop
+                }
+            });
+            
+            // Message Hide Automatically After 3 Seconds
+            setTimeout(() => {
+                let msg = document.querySelector("#messages");
+                if (msg) {
+                    msg.style.display = "none";
+                }
+            }, 3000);
+            
+</script>    
+
+
+
+
+
+
+ {% endblock %}  
+
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const menuContainer = document.querySelector(".menu-container");
+        const menuToggle = document.getElementById("menu-toggle");
+        
+        menuToggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            menuContainer.classList.toggle("active");
+        });
+        document.addEventListener("click", function (event) {
+            if (!menuContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+                menuContainer.classList.remove("active");
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const exploreBtn = document.querySelector(".btn[href='#']"); // Target the "Explore Courses" button
+        const dropdown = document.querySelector(".dd2");
+
+        exploreBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+        });
+
+
+    });
+
+
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+                event.preventDefault();
+                alert("Form submitted successfully!");
+            });
+       
+
+{% comment %} yeh mera popup2 wala js hai ............. {% endcomment %}
+
+const popup = document.getElementById("popup");
+const popupContent = document.querySelector(".popup-content");
+const openPopup = document.getElementById("openPopup");
+const closePopup = document.querySelector(".close");
+const mobileInput = document.getElementById("mobile");
+const submitButton = document.getElementById("submit");
+
+// Open popup
+openPopup.addEventListener("click", () => {
+    popup.style.display = "flex";
+    setTimeout(() => {
+        popup.classList.add("show");
+        popupContent.classList.add("show");
+    }, 1000);
+});
+
+// Close popup
+closePopup.addEventListener("click", () => {
+    closeForm();
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === popup) {
+        closeForm();
+    }
+});
+
+// Function to close the form
+function closeForm() {
+    popup.classList.remove("show");
+    popupContent.classList.remove("show");
+    setTimeout(() => {
+        popup.style.display = "none";
+    }, 300);
+}
+
+// Validate input
+mobileInput.addEventListener("input", function () {
+    this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
+    if (this.value.length > 10) {
+        this.value = this.value.slice(0, 10); // Restrict to 10 digits
+    }
+});
+
+// Form submission
+submitButton.addEventListener("click", function (event) {
+    if (mobileInput.value.length !== 10) {
+        event.preventDefault();
+        alert("Please enter a valid 10-digit mobile number.");
+    }
+    // else form submit hoke backend pe chala jayega
+});
+
+
+
+</script>
+

@@ -1,0 +1,74 @@
+{% load static %}
+
+<nav>
+    <div class="logo">
+    <a href="{% url 'home' %}">
+      <img src="{% static 'images/zeelogo.jpg' %}" alt="ZeeTech Academy Logo">
+    </a>
+    </div>
+
+    <!-- Main Navbar Links (Visible on large screens) -->
+    <div class="main-links">
+      <a href="{% url 'courses' %}" class="mains">Explore Courses</a>
+       {% comment %} <button id="openPopup">For Counselling</button> {% endcomment %}
+   <a href="{% url 'councelling' %}" class="mains" id="openPopup"> For Counselling </a>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <label for="sidebar-active" class="open-sidebar-button">
+      ☰
+    </label>
+  </nav>
+
+  <!-- Checkbox to control sidebar visibility -->
+  <input type="checkbox" id="sidebar-active">
+
+  <!-- Sidebar for Additional Options -->
+  <div class="sidebar">
+    <label for="sidebar-active" class="close-sidebar-button"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M15.78 3.72a.75.75 0 0 0-1.06-1.06L9 8.44 3.28 2.72a.75.75 0 0 0-1.06 1.06L7.94 9l-5.72 5.72a.75.75 0 0 0 1.06 1.06L9 9.56l5.72 5.72a.75.75 0 0 0 1.06-1.06L10.06 9l5.72-5.72Z" fill="currentColor"/>
+</svg></i>
+</label>
+    <a href="{% url 'aboutus' %}">About Us</a>
+    <a href="#career">Careers</a>
+    <a href="{% url 'all_blog' %}">Blog</a>
+    <a href="#faqs">FAQs</a>
+    {% comment %} <a href="#cours">Courses</a> {% endcomment %}
+    <a href="{% url 'courses' %}">Explore Courses</a>
+    <a href="{% url 'councelling' %}">For Counselling</a>
+  </div>
+
+ {% comment %} <nav class="navbar">
+    <div class="logo">
+        <a href="#"><img class="nav-logo" src="{% static 'images/zeetechacademylogo.jpeg' %}" alt="ZeeTech Academy Logo"></a>
+    </div>
+    <div class="nav-links">
+        <a href="#" class="btn">Explore Courses</a>
+        <a href="#" class="btn">For Counselling</a>
+        <div class="menu-container">
+            <a href="#" id="menu-toggle">
+                <i class="fa-solid fa-ellipsis-vertical menu-icon"></i>
+            </a>
+            <div class="dropdown">
+                <a href="#">About Us</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+                <a href="#">FAQs</a>
+                <a href="#">Courses</a>
+            </div>
+        </div>
+    </div>
+ </nav> {% endcomment %}
+
+
+{% comment %} <script>
+ function openSidebar() {
+ document.getElementById("sidebar").style.right = "0";
+ }
+
+ function closeSidebar() {
+document.getElementById("sidebar").style.right = "-100%";
+ }
+</script> {% endcomment %}
+
+

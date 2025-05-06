@@ -1,0 +1,567 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:white;
+    padding: 15px;
+    color: black;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    color: white;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.menu-container:hover .dropdown, #explore-btn:hover + .dd2 {
+    display: block;
+}
+
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --title-color: #fff;
+  
+  
+  --container-color: hsl(0, 0%, 0%);
+  /*========== Font and typography ==========*/
+  --body-font: "Poppins", sans-serif;
+  --biggest-font-size: 2.25rem;
+  --normal-font-size: 1.25rem;
+}
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* body {
+  font-family: var(--body-font);
+  color: var(--text-color);
+  width:100% ;
+  text-align: center;
+} */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.course-section{
+  margin-top: 120px;
+}
+.course__container {
+  margin-inline: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2rem;
+  align-items: center;
+justify-content: center;
+/* margin-top: 80px; */
+
+  
+}
+.course__article {
+  position: relative;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 2rem;
+  text-align: center;
+  box-shadow: 0 20px 24px hsla(0, 0%, 0%, 0.445);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+    margin: 10px; 
+}
+
+
+
+/* Ensure course images do not affect card size */
+.course__img {
+  width: 150x;
+  height: 100px; /* Set a fixed height */
+  object-fit: contain; /* Ensures images are properly cropped without distortion */
+  margin-bottom: 1rem;
+  animation: float-img 2.5s ease-in-out infinite;
+}
+.card__title {
+  color: var(--title-color);
+  font-size: var(--biggest-font-size);
+  line-height: 100%;
+  margin-bottom: 1rem;
+}
+.card__description {
+  font-size: var(--normal-font-size);
+  flex-grow: 1;
+  color: white;
+  
+}
+.course__data {
+  position: relative;
+  z-index: 10;
+
+}
+.course__data p{
+  color: white;
+}
+
+/* Animation img */
+@keyframes float-img {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-0.75rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+/* Animation shape */
+.course__article:hover .card__shape {
+  animation-name: shape-animate;
+  animation-duration: 0.8s;
+  animation-iteration-count: 2; /* infinite */
+}
+
+@keyframes shape-animate {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  40% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+ /* For medium devices */
+@media screen and (min-width: 768px) {
+ .course__container {
+    grid-template-columns: repeat(2, minmax(280px, 1fr)); /* 2 columns */
+ }
+    }
+    
+    /* For large devices */
+    @media screen and (min-width: 1024px) {
+    .course-section {
+     height: 100vh;
+     }
+    .course__container {
+    grid-template-columns: repeat(3, minmax(280px, 1fr)); /* 3 columns */
+ }
+    }
+    
+.course__article:hover {
+    transform: scale(1.05);
+}
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    justify-content: space-around;
+    font-size: 20px;
+    margin: 10px 0;
+    color: hsl(235, 20%, 57%);
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.buttonss{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 0 10px;
+}
+.buttonss .know-more-btn, .brochure-btn {
+  flex: 1;
+  padding: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  width: 120px;
+  min-width: 100px;
+  max-width: 120px;
+  margin: 0;
+}
+
+.brochure-btn {
+    background-color: rgb(0, 38, 255);
+    color: rgb(255, 255, 255);
+    border: 1px solid black;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    flex-direction:column;
+    
+    min-width: 110px;
+    
+}
+
+.know-more-btn {
+    background-color: rgb(0, 38, 255);
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    flex-direction:column;
+    min-width: 110px;
+    height: 50px;
+}
+
+.know-more-btn:hover, .brochure-btn:hover, .see-all-button{
+    background-color:black;
+    color: white;
+}
+.see-all-button {
+    background-color:blue;
+    color: white;
+    border: 1px solid black;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: inline-block;
+    align-items: right;
+    position: relative;
+    top: -8px;
+    margin-left: 1100px;
+    max-width: 120px;
+    min-width:120px;
+    
+}
+.buttons {
+    display: flex;
+    justify-content:flex-end;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap:10px;
+    align-items: right;
+    padding-right:3%;
+}
+.see-all-button:hover {
+background-color: rgb(0, 0, 0);
+color: white;
+}
+.tech-stack span::before{
+    color:black;
+    font-weight: bold;
+}
+.brochure-btn a {
+    text-decoration: none;  /* Removes underline */
+    color: inherit;         /* Keeps text color same as button */
+    display: inline-block;  /* Makes it behave like a button */
+    width: 100%;            /* Ensures full button click area */
+}
+
+.brochure-btn a:visited,
+.brochure-btn a:hover,
+.brochure-btn a:active {
+    color: inherit;         /* Prevents blue color on click */
+    text-decoration: none;  /* No underline on hover/click */
+}
+/* Section Header */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+/* Mobile View: Stack and Overlap */
+@media screen and (max-width: 600px) {
+  .course__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+ 
+  .course__article {
+    width: 90%; /* Full width for mobile */
+    max-width: 320px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    transition: 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+  }
+
+  /* Overlapping Effect */
+  .course__article:nth-child(1) {
+    top: 0px;
+    z-index: 3;
+  }
+  
+  .course__article:nth-child(2) {
+    top: 0px; /* Adjust overlap */
+    z-index: 2;
+  }
+
+  .course__article:nth-child(3) {
+    top:0px; /* Adjust overlap */
+    z-index: 1;
+  }
+
+  /* Lift card on hover */
+  .course__article:hover {
+    transform: translateX(-50%) scale(1.05);
+    z-index: 5;
+  }
+  
+    .course__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+    }
+
+    .course__article {
+        width: 90%;
+        max-width: 320px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all 0.5s ease-in-out;
+    }
+    
+    
+      .course__container {
+          position: relative;
+          height: 500px; /* Adjust height as needed */
+          margin-left: 9px;
+      }
+      .course__data {
+        width: 100%;  /* Ensure child elements fit */
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+  
+
+    .card__title {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .tech-stack {
+        font-size: 14px;
+        justify-content:space-around;
+        gap:20px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 5px;
+        flex-direction: row;
+        margin-right: 25px;
+    }
+
+    .brochure-btn, .know-more-btn{
+        font-size: 12px;
+        padding: 5px 10px;
+        flex: 1;
+        width: 120px;
+    }
+   .buttonss{
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+   }
+    .see-all-button{
+      width: 120px;
+    }
+}
+@media(max-width:400px){
+  .buttonss {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .buttonss .brochure-btn,
+  .buttonss .know-more-btn {
+    flex: 1;
+    max-width: 120px;
+    margin: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* company tie ups wala css hai  */
+
+  .partners-section {
+    background-color:white;
+    padding: 50px 20px;
+    height: 500px;
+}
+.partners-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: black;
+}
+.partners-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.partner-logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 104px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+/* .partner-logo:hover {
+    transform: scale(1.1);
+    background-color: blanchedalmond;
+} */
+.partner-logo img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 80px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.partner-logo h3{
+    padding-top: 20px;
+    color: #fff;
+  
+}
+.cta-button {
+    display: inline-block;
+    margin-top: 80px;
+    padding: 10px 20px;
+    background-color: #e20a0a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+.cta-button:hover {
+    background-color: #ff4d4d;
+}
+
+
+
+
+/* experts wala css hai  */
+.head {
+  background: white;
+  width: 100%;
+  height: 600px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.mg img {
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.header h3 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.introduction h1 {
+  font-size: 22px;
+  
+}
+
+button {
+  padding: 10px 20px;
+  margin: 15px;
+  background: RED;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+
+  
+  
+}
+
+button:hover {
+  background: #e68900;
+}
+#experience{
+  margin-top: -9px;
+}
+.designation p{
+  margin-top: 5px
+}
+#expert-header{
+  margin-top: 20px;
+}
+#studentss{
+   margin-top: -9px; 
+}

@@ -1,0 +1,52 @@
+.form-box {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: slideIn 0.8s ease;
+    max-width: 500px; /* slightly increased */
+    width: 90%;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    margin: 6% auto; /* center horizontally */
+}
+
+input {
+    width: 100%; /* full width inside the form */
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+#submittt {
+    width: 100%; /* full width button for better alignment on all devices */
+    padding: 14px;
+    font-size: 18px;
+    background-color:#e81818;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .form-box {
+        padding: 30px 20px;
+        margin-top: 10%;
+    }
+
+    .imagess img {
+        max-width: 100%;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+}

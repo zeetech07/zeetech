@@ -1,0 +1,24 @@
+{% if placed_students %}
+    {% for student in placed_students %}
+    <div class="student-card">
+        <img src="{{ student.photo }}" alt="Student Image">
+        <div class="student-info">
+            <h4>{{ student.name }}</h4>
+            <p><strong>Company:</strong> {{ student.company }}</p>
+            <p><strong>Package:</strong> {{ student.package }}</p>
+            <p><strong>Job Role:</strong> {{ student.job_role }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    {% comment %} <p>No placements available for this course.</p> {% endcomment %}
+{% endif %}
+
+
+
+
+
+
+
+
+

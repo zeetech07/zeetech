@@ -1,0 +1,69 @@
+{% load static %}
+    <!-- Stats Section -->
+    <br>
+    <section class="stats-section">
+     <h1 style="color:black; text-align:center;">Our Achievements</h1>
+     <br>
+        <div class="stats-container">
+
+            <!-- Stat Box 1 (Students Trained - Display in k) -->
+            <div class="stat-box">
+                <img src="{% static 'images/book1.jpg' %}" alt="Students Trained">
+                <h2><span class="counter" data-target="40000" data-format="k">0</span>+</h2>
+                <p>Students Trained</p>
+            </div>
+
+            <!-- Stat Box 2 (Hiring Companies - Full Number) -->
+            <div class="stat-box">
+                <img src="{% static 'images/company.png' %}" alt="Hiring Companies">
+                <h2><span class="counter" data-target="2000">0</span>+</h2>
+                <p>Hiring Companies</p>
+            </div>
+
+            <!-- Stat Box 3 (Highest Salary Drawn - Convert to LPA) -->
+            <div class="stat-box">
+                <img src="{% static 'images/envelope.png' %}" alt="Highest Salary Drawn">
+                <h2><span class="counter" data-target="1950000" data-format="lpa">0</span></h2>
+                <p>Highest Salary</p>
+            </div>
+
+            <!-- Stat Box 4 (Training Conducted - Full Number) -->
+            <div class="stat-box">
+                <img src="{% static 'images/clock.png' %}" alt="Training Conducted">
+                <h2><span class="counter" data-target="65000">0</span> hrs</h2>
+                <p>Training Conducted</p>
+            </div>
+
+        </div>
+    </section>
+
+
+<section class="info-section">
+  <h1 id="heading">Why Choose Zee-Tech Academy?</h1>
+
+  <div class="why-choose">
+    <div class="why-choose-item">
+      🚀 <p><strong>40,000+ Students Trained</strong> — With a legacy of training over 40,000 aspiring professionals, Zee-Tech Academy stands at the forefront of technical and career-oriented education. Our hands-on approach ensures every student gets real-world knowledge and skills.</p>
+    </div>
+    <div class="why-choose-item">
+      🤝 <p><strong>2000+ Hiring Partners</strong> — We are proud to be associated with more than 2000 top-tier companies across various industries. Our strong industry connections open up limitless placement opportunities for our students.</p>
+    </div>
+    <div class="why-choose-item">
+      💼 <p><strong>19.5 LPA - Highest Salary Package</strong> — Zee-Tech students don’t just get placed — they get noticed. With the highest package reaching up to 19.5 LPA, our placement records speak for themselves.</p>
+    </div>
+    <div class="why-choose-item">
+      ⏱ <p><strong>65,000+ Hours of Training Delivered</strong> — With more than 65,000 hours of expert-led training conducted, our curriculum equips students with industry-relevant skills.</p>
+    </div>
+  </div>
+
+  <a href="{% url 'contactus' %}">
+    <button class="inquire-bttnn">Inquire Now →</button>
+  </a>
+</section>
+
+   
+    <script src="parameter.js"></script>
+</body>
+</html>
+
+ 

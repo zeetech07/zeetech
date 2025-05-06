@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br> 
+<header>
+    {{course.course_name}}
+</header>
+{% comment %} <section class="curriculum">
+  {% if course %}
+    <!-- Sidebar Section -->
+    <div class="sidebarrr">
+        <h2 class="white">{{ course.course_name }}</h2>
+        <h1 style="color: yellow;">SIDEBAR IS HERE</h1>
+        <p class="white">{{ course.course_desc }}</p>
+        <img src="{{ course.image.url }}" alt="Course Image" class="course-image">
+        <ul>
+            <li class="white"><strong class="white">30+</strong> Case Studies & Projects</li>
+            <li class="white"><strong class="white">10+</strong> Languages & Tools</li>
+            <li class="white"><strong class="white">280+</strong> Live Sessions Hours</li>
+        </ul>
+        <a href="{% url 'broucher' course.id %}" style="text-decoration:none;">
+          <button class="brochure-btn">📄 Download Brochure</button>
+        </a>
+    </div>
+
+    <!-- Course Content Section -->
+    <div class="course-content">
+        {% for item in tech_with_topics %}
+        <div class="module" onclick="toggleModule(this)">
+            <h3 class="white">
+                {{ item.tech.tech_name }}
+                <span class="duration">3.2 Weeks</span>
+            </h3>
+            <ul class="details" style="display: none; opacity: 0; color:white;">
+                {% for topic in item.topics %}
+                    <li>{{ topic.topic_name }}</li>
+                {% empty %}
+                    <li>No topics available</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+  {% else %}
+    <p style="color: red;">Course data not found!</p>
+  {% endif %}
+</section> {% endcomment %}
+
+{% comment %} ................................................................................................... {% endcomment %}
+ <section class="curriculum">
+ {% comment %} <p>DEBUG: Course = {{ course }}</p> {% endcomment %}
+  {% if course %}
+    <div class="sidebarrr">
+        <h2 class="white">{{course.course_name}}</h2>
+         {% comment %} <h1 style="color: yellow;">SIDEBAR IS HERE</h1> {% endcomment %}
+        <p class="white">{{course.course_desc}}</p>
+        {% if course.image and course.image.url %}
+           <img src="{{ course.image.url|default_if_none:'/static/default.jpg' }}" alt="Course Image" class="course-image">
+           {% comment %} <img src="{{course.image.url}}" alt="Course Image" class="course-image">  {% endcomment %}
+        {% endif %}
+        <ul>
+            <li class="white"><strong class="white">30+</strong> Case Studies & Projects</li>
+            <li class="white"><strong class="white">10+</strong> Languages & Tools</li>
+            <li class="white"><strong class="white">280+</strong> Live Sessions Hours</li>
+        </ul>
+        {% comment %} <a href="{% url 'broucher' course.id %}" style="text-decoration:none;"><button class="brochure-btnns">📄 Download Brochure</button></a> {% endcomment %}
+    </div>
+  {% else %}
+          <p style="color: red;">Course data not found!</p>
+  {% endif %}
+
+    <div class="course-contenttt">
+        {% for item in tech_with_topics %}
+        <div class="module" onclick="toggleModule(this)">
+            <h3 class="white">
+                {{ item.tech.tech_name }}   
+               {% comment %} <span class="tag frontend">#Frontend</span> {% endcomment %}
+               {% comment %} <span class="duration">3.2 Weeks</span> {% endcomment %}
+            </h3>
+            <ul class="details" style="display: none; opacity: 0; color:white;">
+                {% for topic in item.topics %}
+                <li>{{ topic.topic_name }}</li>
+                {% empty %}
+                <li>No topics available</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+ 
+</section>
+
+
+
+
+
+{% endblock %}
+
+
+
+<script>
+
+function toggleModule(module) {
+    let details = module.querySelector(".details");
+
+    if (details.style.display === "block") {
+        details.style.opacity = "0";
+        details.style.maxHeight = "0px"; 
+        setTimeout(() => { details.style.display = "none"; }, 300);
+    } else {
+        details.style.display = "block";
+        setTimeout(() => {
+            details.style.opacity = "1";
+            details.style.maxHeight = "200px"; // Limited height for scrolling
+        }, 50);
+    }
+}
+</script>
+
+
+   
+

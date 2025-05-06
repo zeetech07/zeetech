@@ -1,0 +1,256 @@
+/* Wrapper to center the form-container */
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: auto;
+    height: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Center the heading at the top */
+.application-form h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+   
+}
+
+.application-form p {
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+   
+}
+
+/* Form Section */
+.application-form {
+    flex: 1;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* Form Labels */
+.application-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+}
+textarea {
+    width: 100%; /* Makes it match input width */
+    height: 120px; /* Set height */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    resize: vertical; /* Allows vertical resizing */
+    box-sizing: border-box;
+}
+
+/* Form Inputs */
+.application-form input,
+.application-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+/* Make Subject and Your Message labels bold */
+label[for="subject"], 
+label[for="Your-Message"] {
+    font-weight: bold;
+}
+
+/* Updated Row Styling */
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap; /* Keeps inputs side by side */
+    justify-content: space-between;
+}
+
+/* Ensuring Side-by-Side Layout */
+.row .input-group {
+    flex: 1;
+    min-width: 45%; /* Maintains side-by-side layout */
+}
+
+/* Submit Button */
+.submit {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.submit:hover {
+    background-color: darkred;
+    color: white;
+}
+
+/* Image Section */
+.gif {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 50%;
+    height: auto;
+    overflow: hidden;
+    padding: 30px 20px 10px;
+    margin-bottom: -30px;
+}
+
+.gif img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Laptop: Adjust Image Position */
+/* @media (min-width: 1024px) {
+    .gif {
+        max-width: 50%;
+        padding-top: 120px;
+        margin-bottom: -40px;
+    }
+} */
+@media (min-width: 1024px) {
+    .form-container {
+        position: relative;
+        padding-top: 0px;
+        margin-left: 2px;
+        width: auto;
+        max-width: 1373px;
+        margin-top: -125px;
+    }
+
+    .application-form h1 {
+        position: absolute;
+        top: 20px; /* Moves heading to the top */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
+    .application-form p {
+        position: absolute;
+        top: 65px; /* Moves heading to the top */
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+    }
+
+    .gif {
+        max-width: 50%;
+        padding-top: 120px;
+        margin-bottom: -3px;
+    }
+}
+
+/* Responsive Design - Adjust for Smaller Screens */
+@media (max-width: 900px) {
+    .container-wrapper {
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 15px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        width: 90%;
+        max-width: 600px;
+        margin: auto;
+        padding: 25px;
+    }
+
+    .application-form {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        margin-top: 0;
+    }
+
+    .gif {
+        max-width: 100%;
+        margin-top: 25px;
+        padding-top: 0;
+    }
+}
+
+/* Mobile: Ensure Image is on Top */
+@media (max-width: 600px) {
+    .container-wrapper {
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 95%;
+        padding: 15px;
+        max-width: 450px;
+        flex-direction: column;
+    }
+
+    .gif {
+        max-width: 100%;
+        padding-top: 0;
+        order: -1; /* Moves GIF to the top */
+        margin-bottom: 20px;
+    }
+
+    .application-form {
+        width: 100%;
+        padding: 15px;
+        
+        margin-top: -91px;
+    }
+
+    .application-form h1,
+    .application-form p {
+        position: relative;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}

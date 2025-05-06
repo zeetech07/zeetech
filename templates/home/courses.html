@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<br>
+<br>
+
+<h1>Available All Courses</h1>
+<br>
+ <div class="course__container">
+
+     {% for course in all_courses %}
+       <article class="course__article">
+        <div class="course__data">
+        
+            {% if course.image %}
+                <img src="{{ course.image.url }}" alt="course image" class="course__img">
+            {% else %}
+                <img src="{% static 'default-course.jpg' %}" alt="default course image" class="course__img">
+            {% endif %}
+            
+            <h1 class="card__title">{{ course.course_name }}</h1>
+        
+            <p class="course__description"><i class="fa-solid fa-clock"> </i> {{course.course_duration}} Months Online & Offline Training</p>
+            <div class="buttonss">
+                <button style="border:none;" class="brochure-btnnn">
+                    <a href="{% url 'broucher' course.id %}" id="Download Brochure">Download Brochure <i class="fa-regular fa-file"></i></a>
+                </button>
+                <a style="text-decoration:none;" href="{% url 'detail' course.id %}">
+                    <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button>
+                </a>
+            </div>
+        </div>
+    </article>
+{% endfor %}
+
+
+       
+
+    </div>
+</section>
+<br>
+<br>
+
+
+{% endblock %}
+

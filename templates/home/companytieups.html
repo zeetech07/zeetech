@@ -1,0 +1,29 @@
+{% load static %}
+
+<section class="partners-section">
+        <h2>Our Trusted Partners</h2>
+        <div class="carousel-container">
+            <div class="partners-container">
+             {% if companies %}
+             {% for i in companies %}
+                <div class="partner-logo">
+                    <img src="{{ i.company_image.url }}" ><br>
+                    <div>
+                <h3 id="cname">{{ i.company_name }}</h3> 
+                  </div>
+                 
+                </div>
+                
+                
+              {% endfor %}
+              {% else %}     
+                    <p>No companies available.</p>
+              {% endif %}  
+            </div>
+        </div>
+    </section>
+
+
+
+
+

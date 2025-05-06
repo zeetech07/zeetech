@@ -1,0 +1,291 @@
+/* Wrapper to center the form-container */
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 110%;
+    height: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    position: relative;
+    margin-left: -20px;
+    margin-top: 30px;
+}
+
+/* Center the heading at the top */
+.application-form h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.application-form p {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Form Section */
+.application-form {
+    flex: 1;
+    max-width: 400px;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+/* Form Labels */
+.application-form label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    font-size: 14px;
+}
+
+/* Form Inputs */
+.application-form input,
+.application-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Ensure both select boxes are aligned properly */
+.application-form select, 
+.select2-selection {
+    height: 40px !important;  /* Uniform height */
+    padding: 5px 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Select2 Dropdown Styling */
+.select2-container--default .select2-selection--single {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+/* Row Styling */
+.row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap; /* Ensures side-by-side layout */
+    justify-content: space-between;
+}
+
+/* Ensuring Side-by-Side Layout */
+.row .input-group {
+    flex: 1;
+    min-width: 48%; /* Maintains side-by-side layout */
+}
+
+/* Ensure uniform margin & padding for dropdowns */
+.application-form .row select {
+
+    padding: 5px 10px;
+}
+
+/* File Upload Styling */
+.file-upload {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.file-upload label {
+    background-color: black;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.file-upload label:hover {
+    background-color:#e81818;
+}
+
+.file-name {
+    font-size: 13px;
+    color: black;
+}
+
+/* Submit Button */
+.submit {
+    background-color: #e81818;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.submit:hover {
+    background-color: #090d78;
+    color: white;
+}
+
+/* Image Section */
+.gif {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60%;
+    height: auto;
+    overflow: hidden;
+    padding: 50px 20px 20px;
+}
+
+.gif img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Laptop: Adjust Image Position */
+@media (min-width: 1024px) {
+    .gif {
+        max-width: 60%;
+        padding-top: 160px;
+    }
+}
+
+/* Responsive Design - Adjust for Smaller Screens */
+@media (max-width: 900px) {
+    .container-wrapper {
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        padding: 15px;
+    }
+
+    .form-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+        width: 90%;
+        max-width: 600px;
+        margin: auto;
+        padding: 25px;
+        margin-top: 30px;
+    }
+
+    .application-form {
+        max-width: 100%;
+        width: 100%;
+        padding: 20px;
+        margin-top: 120px;
+    }
+
+    .gif {
+        max-width: 100%;
+        margin-top: 25px;
+        padding-top: 20px;
+    }
+}
+
+/* Mobile: Ensure Inputs Stay Side-by-Side */
+@media (max-width: 600px) {
+    .row {
+        display: flex;
+        flex-wrap: nowrap; /* Keeps inputs side by side */
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .row .input-group {
+        flex: 1;
+        min-width: 45%; /* Maintains side-by-side layout */
+    }
+
+    .container-wrapper {
+        padding: 10px;
+    }
+
+    .form-container {
+        width: 95%;
+        padding: 15px;
+        max-width: 450px;
+    }
+
+    .application-form {
+        width: 100%;
+        padding: 15px;
+        margin-top: -20px;
+    }
+
+    .gif {
+        max-width: 100%;
+        padding-top: 25px;
+    }
+   
+}
+/* Reduce Width for Both Select Boxes */
+.row .input-group {
+    flex: 1;
+    min-width: 42%; /* Reduce width slightly */
+}
+
+/* Fix Overlapping Issue on Small Screens */
+@media (max-width: 375px) { /* iPhone SE width */
+    .row {
+        display: flex;
+        flex-wrap: nowrap; /* Keeps inputs side by side */
+        justify-content: space-between;
+        gap: 5px; /* Reduce space between */
+    }
+    
+    .row .input-group, .select2-container--default{
+        min-width: 10%; /* Full width on small screens */
+    }
+}

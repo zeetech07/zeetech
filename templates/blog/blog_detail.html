@@ -1,0 +1,193 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<br>
+<br>
+
+<div class="blog-container">
+    <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}"> 
+
+    <div class="blog-category-buttons">
+        <a style="text-decoration:none;" href="{% url 'all_blog' %}"><button style="text-decoration:none;" class="blog-btn">All</button></a>
+        {% for category in categories %}
+            <a style="text-decoration:none;" href="{% url 'all_blog' %}?category={{ category.name }}">
+                <button style="text-decoration:none;" class="blog-btn">{{ category.name }}</button>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="blog-content-wrapper">
+        <div class="blog-card">
+            <div class="blog-header">
+                <h1 class="blog-title">{{ blog.title }}</h1>
+                {% comment %} <p class="blog-subtitle">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure debitis culpa assumenda aliquam.
+                </p> {% endcomment %}
+            </div>
+
+            <div class="blog-image-section">
+                <img class="blog-image" src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            </div>
+
+            <div class="blog-description">
+                <p>
+                    {{ blog.details|slice:":300" }}...
+                    <span id="blogMoreContent" style="display: none;">
+                        {{ blog.details|slice:"300:" }}
+                    </span>
+                </p>
+            </div>
+
+            {% comment %} <div class="blog-footer">
+                <div class="blog-social-icons">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-solid fa-link"></i>
+                </div> {% endcomment %}
+                <div class="blog-readmore-button">
+                    <button id="blogReadMoreBtn" onclick="toggleBlogMore()">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleBlogMore() {
+        const moreContent = document.getElementById("blogMoreContent");
+        const btn = document.getElementById("blogReadMoreBtn");
+        if (moreContent.style.display === "none") {
+            moreContent.style.display = "inline";
+            btn.innerText = "Read Less";
+        } else {
+            moreContent.style.display = "none";
+            btn.innerText = "Read More";
+        }
+    }
+</script>
+
+<br>
+<br>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="button-group">
+          <link rel="stylesheet" href="{% static 'css/blog_detail.css'%}">
+        
+        <a href="{% url 'all_blog' %}"><button>All</button></a>
+        {% for category in categories %}
+            <a href="{% url 'all_blog' %}?category={{ category.name }}"><button>{{ category.name }}</button></a>
+        {% endfor %}
+    </div>
+
+    <div class="display-flex">
+        <div class="card">
+            <div class="head">
+                <h1>{{ blog.title }}</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure debitis culpa assumenda aliquam.</p>    
+            </div>
+            <div class="image">
+                <img src="{{ blog.image.url }}" alt="{{ blog.title }}">
+            </div>
+            <div class="head">
+                <p>{{ blog.details }}</p>    
+            </div>
+            <div class="footer">
+                <div class="icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <i class="fa-brands fa-x-twitter"></i>
+                    <i class="fa-solid fa-link"></i>
+                </div>
+                <div class="button">
+                    <button>Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+ {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

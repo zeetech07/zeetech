@@ -1,0 +1,172 @@
+nav {
+    height: 70px;
+    background-color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 4px 15px rgba(0,0, 0,0.15);
+    border-radius: 50px;
+    width: 90%;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    position: fixed;
+    overflow: hidden;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin: 0 auto;
+    z-index: 999;
+}
+  
+.main-links {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+    gap: 150px;
+}
+  
+.main-links a {
+    height: 100%;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    /* color:#000000; */
+    white-space: nowrap;
+    color: white;
+    background-color:  #e81818;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    border-radius: 20px;
+}
+/* .mains{
+    color: white;
+    background-color: #090d78;
+
+
+} */
+  
+.main-links a:hover{
+    background-color:#090d78;
+    color: white;
+}
+.logo img {
+    margin-top: -12px;
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    margin-right:11px;
+    margin-left: 10px;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    position: fixed !important;
+    top: 0;
+    right: -100% !important;  /* Initially hidden */
+    width: 300px;
+    height: 392px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    transition: 0.5s ease-in-out;
+    background-color:#fff;
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0,0, 0,0.1);
+    z-index: 999;
+}
+  
+.sidebar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color:#000;
+    display: block;
+    box-shadow: 5px 4px 12px rgba(126, 124, 124, 0.1);
+    
+}
+
+  
+.sidebar a:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2.5px; /* Bold underline */
+    text-underline-offset: 4px; /* Thoda neeche offset bhi ache lagta hai */
+    color: black;
+}
+
+
+
+/* Ensure the sidebar is hidden by default */
+#sidebar-active {
+    display: none;
+    
+    
+}
+
+/* When checkbox is checked, show the sidebar */
+#sidebar-active:checked ~ .sidebar {
+    right: 0 !important;
+}
+
+/* Open Sidebar Button */
+.open-sidebar-button {
+    cursor: pointer;
+    display: block;
+    font-size: 24px;
+    color:black;
+    padding: 10px;
+}
+
+/* Close Sidebar Button */
+.close-sidebar-button {
+    display: block;
+    font-size: 24px;
+    color:rgb(0, 0, 0);
+    padding: 10px;
+    cursor: pointer;
+    text-align: right;
+    overflow: hidden;
+}
+
+/* Hide main links on smaller screens */
+@media (max-width: 768px) {
+    .main-links {
+        display: none;
+    }
+    #sidebar-active {
+        display: none;
+    
+    }
+   
+    
+    nav{
+        height: 70px;
+        background-color:white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        box-shadow: 0px 4px 15px rgba(0,0, 0,0.15);
+        border-radius: 50px;
+        width: 90%;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        max-width: 100%;
+        position: fixed;
+        overflow: hidden;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin: 0 auto;
+        z-index: 999;
+    }
+   
+}
+html, body {
+     overflow-x: hidden;
+    }
+
+

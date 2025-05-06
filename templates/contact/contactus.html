@@ -1,0 +1,631 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main>
+<br>
+<br>
+<br>
+<br>
+<br>
+    <div class="form-container">
+        <!-- Left Section (Form) -->
+        <section class="application-form">
+            <h1>Contact Us</h1>
+            {% comment %} <p>"Reach out to us for a quote or consultation today!"</p> {% endcomment %}
+
+            <form id="contact-form" action="{% url 'contactus' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- === Error Messages === -->
+                {% if errors %}
+                <div class="error-box" style="
+                    color:rgb(243, 4, 0);
+                    background: #f2dede;
+                    border: 1px solid #ebccd1;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        {% for error in errors %}
+                            <li style="margin-bottom: 6px;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- === Success Message === -->
+                {% if success %}
+                <div class="success-box" style="
+                    color:rgb(27, 182, 7);
+                    background: #dff0d8;
+                    border: 1px solid #d6e9c6;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    {{ success }}
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="input-group">       
+                        <label for="first-name"> First Name</label>
+                        <input type="text" id="first-name" name="first_name" placeholder="first-name" required>
+                    </div>  
+                    <div class="input-group">   
+                        <label for="last-name"> Last Name</label>
+                        <input type="text" id="last-name" name="last_name" placeholder="last-name" required>
+                    </div>        
+                </div>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="1234567890" required>
+
+                <label for="email">Email Id</label>
+                <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+
+                <div class="input-group">
+                    <label for="Your Message">Your Message</label>
+                    <textarea id="Your-Message" name="Your-Message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit">Submit <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </section>
+
+        <!-- Right Section (Address) -->
+        <div class="gif">
+            <img src="{% static 'images/finalcontactus.jpg' %}" alt="gif">
+        </div>
+    </div>
+</main>
+
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">  
+
+<script>
+    // Wait until the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('contact-form');
+        
+        form.addEventListener('submit', function(event) {
+            // Check if the form is valid (i.e., all required fields are filled)
+            if (!form.checkValidity()) {
+                event.preventDefault(); // Prevent form submission
+                alert('Please fill out all required fields!');
+            }
+        });
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+        }, 3000);
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+
+            const successBox = document.querySelector('.success-box');
+            if (successBox) successBox.style.display = 'none';
+        }, 3000);
+    });
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+
+<main>
+    <div class="form-container">
+
+        <section class="application-form">
+            <h1>Contact Us</h1>
+            <p>"Reach out to us for a quote or consultation today!"</p>
+
+            <form id="contact-form" action="{% url 'contactus' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+    
+                {% if errors %}
+                <div class="error-box" style="
+                    color:rgb(243, 4, 0);
+                    background: #f2dede;
+                    border: 1px solid #ebccd1;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        {% for error in errors %}
+                            <li style="margin-bottom: 6px;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if success %}
+                <div class="success-box" style="
+                    color:rgb(27, 182, 7);
+                    background: #dff0d8;
+                    border: 1px solid #d6e9c6;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    {{ success }}
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="input-group">       
+                        <label for="first-name"> First Name</label>
+                        <input type="text" id="first-name" name="first_name" placeholder="first-name" required>
+                    </div>  
+                    <div class="input-group">   
+                        <label for="last-name"> Last Name</label>
+                        <input type="text" id="last-name" name="last_name" placeholder="last-name" required>
+                    </div>        
+                </div>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="1234567890" required>
+
+                <label for="email">Email Id</label>
+                <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+
+                <div class="input-group">
+                    <label for="Your Message">Your Message</label>
+                    <textarea id="Your-Message" name="Your-Message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit">Submit <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </section>
+
+        <div class="gif">
+            <img src="{% static 'images/redd.jpg' %}" alt="gif">
+        </div>
+    </div>
+</main>
+
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">  
+
+<script>
+  
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('contact-form');
+        
+        form.addEventListener('submit', function(event) {
+           
+            if (!form.checkValidity()) {
+                event.preventDefault(); 
+                alert('Please fill out all required fields!');
+            }
+        });
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+        }, 3000);
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+
+            const successBox = document.querySelector('.success-box');
+            if (successBox) successBox.style.display = 'none';
+        }, 3000);
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+
+
+<main>
+    <div class="form-container">
+        <!-- Left Section (Form) -->
+        <section class="application-form">
+            <h1>Contact Us</h1>
+            <p>"Reach out to us for a quote or consultation today!"</p>
+
+        <form action="{% url 'contactus' %}" method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+
+
+     <!-- === Error Messages === -->
+{% if errors %}
+    <div class="error-box" style="
+        color:rgb(243, 4, 0);
+        background: #f2dede;
+        border: 1px solid #ebccd1;
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-family: sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        <ul style="margin: 0; padding-left: 20px;">
+            {% for error in errors %}
+                <li style="margin-bottom: 6px;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+  
+
+
+
+<!-- === Success Message === -->
+{% if success %}
+    <div class="success-box" style="
+        color:rgb(27, 182, 7);
+        background: #dff0d8;
+        border: 1px solid #d6e9c6;
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-family: sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        {{ success }}
+    </div>
+{% endif %}
+
+
+
+
+
+    <div class="row">
+        <div class="input-group">       
+            <label for="first-name"> First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="first-name" required>
+        </div>  
+        <div class="input-group">   
+            <label for="last-name"> Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="last-name" required>
+        </div>        
+    </div>
+
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" id="mobile" name="mobile" placeholder="1234567890" required>
+
+    <label for="email">Email Id</label>
+    <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+
+    <div class="input-group">
+        <label for="Your Message">Your Message</label>
+        <textarea id="Your-Message" name="Your-Message" placeholder="Your Message" required></textarea>
+    </div>
+
+    <button type="submit" class="submit">Submit <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+
+        </section>
+
+        <!-- Right Section (Address) -->
+        <!-- <div class="office-container"> -->
+            <div class="gif">
+                <img src="{% static 'images/redd.jpg' %}" alt="gif">
+            </div>
+    
+    </div>
+</main>
+
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">  
+
+
+
+
+<script>
+
+     setTimeout(() => {
+        const errorBox = document.querySelector('.error-box');
+        if (errorBox) errorBox.style.display = 'none';
+    }, 3000);
+
+        setTimeout(() => {
+        const errorBox = document.querySelector('.error-box');
+        if (errorBox) errorBox.style.display = 'none';
+
+        const successBox = document.querySelector('.success-box');
+        if (successBox) successBox.style.display = 'none';
+    }, 3000); 
+   
+</script> {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<main>
+    <div class="form-container"> {% endcomment %}
+        <!-- Left Section (Form) -->
+        {% comment %} <section class="application-form">
+            <h1>Contact Us</h1>
+            <p>"Reach out to us for a quote or consultation today!"</p>
+
+            <form id="contact-form" action="{% url 'contactus' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %} {% endcomment %}
+
+                <!-- === Error Messages === -->
+                {% comment %} {% if errors %}
+                <div class="error-box" style="
+                    color:rgb(243, 4, 0);
+                    background: #f2dede;
+                    border: 1px solid #ebccd1;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    <ul style="margin: 0; padding-left: 20px;">
+                        {% for error in errors %}
+                            <li style="margin-bottom: 6px;">{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %} {% endcomment %}
+
+                <!-- === Success Message === -->
+                {% comment %} {% if success %}
+                <div class="success-box" style="
+                    color:rgb(27, 182, 7);
+                    background: #dff0d8;
+                    border: 1px solid #d6e9c6;
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    margin-bottom: 15px;
+                    font-size: 15px;
+                    font-family: sans-serif;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+                ">
+                    {{ success }}
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="input-group">       
+                        <label for="first-name"> First Name</label>
+                        <input type="text" id="first-name" name="first_name" placeholder="first-name" required>
+                    </div>  
+                    <div class="input-group">   
+                        <label for="last-name"> Last Name</label>
+                        <input type="text" id="last-name" name="last_name" placeholder="last-name" required>
+                    </div>        
+                </div>
+
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="1234567890" required>
+
+                <label for="email">Email Id</label>
+                <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+
+                <div class="input-group">
+                    <label for="Your Message">Your Message</label>
+                    <textarea id="Your-Message" name="Your-Message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit">Submit <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
+        </section> {% endcomment %}
+
+        <!-- Right Section (Address) -->
+        {% comment %} <div class="gif">
+            <img src="{% static 'images/redd.jpg' %}" alt="gif">
+        </div>
+    </div>
+</main>
+
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">  
+
+<script> {% endcomment %}
+    {% comment %} // Wait until the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById('contact-form');
+        
+        form.addEventListener('submit', function(event) {
+            // Check if the form is valid (i.e., all required fields are filled)
+            if (!form.checkValidity()) {
+                event.preventDefault(); // Prevent form submission
+                alert('Please fill out all required fields!');
+            }
+        });
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+        }, 3000);
+
+        setTimeout(() => {
+            const errorBox = document.querySelector('.error-box');
+            if (errorBox) errorBox.style.display = 'none';
+
+            const successBox = document.querySelector('.success-box');
+            if (successBox) successBox.style.display = 'none';
+        }, 3000);
+    });
+</script>
+
+
+{% endblock %} {% endcomment %}
+
+
+
+
+
+
+
+
+
+{% comment %} {% load static %}
+
+
+<main>
+    <div class="form-container">
+        <!-- Left Section (Form) -->
+        <section class="application-form">
+            <h1>Contact Us</h1>
+            <p>"Reach out to us for a quote or consultation today!"</p>
+
+        <form action="{% url 'contactus' %}" method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+
+
+     <!-- === Error Messages === -->
+{% if errors %}
+    <div class="error-box" style="
+        color:rgb(243, 4, 0);
+        background: #f2dede;
+        border: 1px solid #ebccd1;
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-family: sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        <ul style="margin: 0; padding-left: 20px;">
+            {% for error in errors %}
+                <li style="margin-bottom: 6px;">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+  
+
+
+
+<!-- === Success Message === -->
+{% if success %}
+    <div class="success-box" style="
+        color:rgb(27, 182, 7);
+        background: #dff0d8;
+        border: 1px solid #d6e9c6;
+        padding: 12px 20px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+        font-size: 15px;
+        font-family: sans-serif;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    ">
+        {{ success }}
+    </div>
+{% endif %}
+
+
+
+
+
+    <div class="row">
+        <div class="input-group">       
+            <label for="first-name"> First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="first-name" required>
+        </div>  
+        <div class="input-group">   
+            <label for="last-name"> Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="last-name" required>
+        </div>        
+    </div>
+
+    <label for="mobile">Mobile Number</label>
+    <input type="tel" id="mobile" name="mobile" placeholder="1234567890" required>
+
+    <label for="email">Email Id</label>
+    <input type="email" id="email" name="email" placeholder="e.g. yourname@gmail.com" required>
+
+    <div class="input-group">
+        <label for="Your Message">Your Message</label>
+        <textarea id="Your-Message" name="Your-Message" placeholder="Your Message" required></textarea>
+    </div>
+
+    <button type="submit" class="submit">Submit <i class="fa-solid fa-paper-plane"></i></button>
+</form>
+
+        </section>
+
+        <!-- Right Section (Address) -->
+        <!-- <div class="office-container"> -->
+            <div class="gif">
+                <img src="{% static 'images/redd.jpg' %}" alt="gif">
+            </div>
+    
+    </div>
+</main>
+
+<link rel="stylesheet" href="{% static 'css/contactus.css' %}">  
+
+
+
+
+<script>
+
+     setTimeout(() => {
+        const errorBox = document.querySelector('.error-box');
+        if (errorBox) errorBox.style.display = 'none';
+    }, 3000);
+
+        setTimeout(() => {
+        const errorBox = document.querySelector('.error-box');
+        if (errorBox) errorBox.style.display = 'none';
+
+        const successBox = document.querySelector('.success-box');
+        if (successBox) successBox.style.display = 'none';
+    }, 3000); 
+   
+</script> {% endcomment %}

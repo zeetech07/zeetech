@@ -1,0 +1,598 @@
+.containeerr {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid rgb(187, 181, 181);
+    border-radius: 20px;
+}
+
+
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+   
+} 
+
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(220, 220, 226);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+}
+.forms {
+    display: flex;
+    flex-direction: column;
+    
+    margin-top: 15px;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 50%;
+}
+
+input, #emailll ,#mobileee {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 50%;
+    margin-left: 0;
+    
+    
+}
+#first-nameee ,#last-nameee , input {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    margin-left: 0;
+    
+}
+
+input:focus {
+    border-color: #ff4757;
+    box-shadow: 0px 0px 8px rgba(255, 71, 87, 0.3);
+}
+
+
+ .downloads-btn {
+     width: 50%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    /* min-width:85%; */
+   
+}
+
+
+.downloads-btn{
+    margin-left: 25%;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.downloads-btn:hover {
+    background-color: darkred;
+    color: white;
+}
+
+
+
+input::placeholder {
+    text-align: left;
+    font-size: 14px;
+    color: #979494;
+}
+
+@media(max-width:600px) {
+    input {
+        font-size: 14px;
+        padding: 10px;
+        width: 93.5%;
+    }
+    .downloads-btn {
+        width: 50%;
+       padding: 10px;
+       border-radius: 10px;
+       border: 5px;
+       background-color: red;
+       color: white;
+       font-size: 16px;
+       cursor: pointer;
+       margin-top: 10px;
+       min-width:85%;
+    
+    }
+    .downloads-btn{
+        margin-left: 8%;
+    } 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .container {
+    width: 100%;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.course-title {
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.course-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 12px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.download-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: darkred;
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: black;
+    color: white;
+    font-size: 18px;
+    padding: 5px 12px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: none; 
+    z-index: 2;
+} */
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.course-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.course-image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(220, 220, 226);
+    font-size: 16px;
+    color: black;
+}
+
+input::placeholder {
+    font-size: 14px;
+    color: #7a7a7a;
+}
+
+button.download-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.download-btn:hover {
+    background-color: darkred;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+        margin: 20px 10px;
+    }
+
+    .course-title {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    .course-image {
+        max-height: 200px;
+    }
+}  */
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.course-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.course-image {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px auto 30px;
+    display: block;
+    border-radius: 10px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(220, 220, 226);
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    text-align: left;
+    font-size: 14px;
+    color: #979494;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button.download-btn:hover {
+    background-color: darkred;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .course-title {
+        font-size: 24px;
+    }
+
+    input {
+        font-size: 15px;
+        padding: 10px;
+    }
+
+    .course-image {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .course-title {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .course-image {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    button {
+        font-size: 15px;
+    }
+}  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* body {
+    font-family: Arial, sans-serif;
+    background-color:rgb(0, 0, 0);
+    color: black;
+    text-align: center;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+} */
+/* .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+input {
+    width: 97%;
+    padding:10px;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(220, 220, 226);
+    color: rgb(0, 0, 0);
+    text-align: left; 
+    font-size: 16px;
+} */
+/* button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px;
+    background-color:red;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+ 
+}
+button i {
+    margin-left: 5px;
+}
+button.close-btn {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color:none;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    justify-content:right;
+   
+}
+button.download-btn:hover{
+   background-color:darkred ;
+color:white;
+}
+button.close-btn:hover{
+    background-color: none;
+    color: white
+}
+input::placeholder{
+    text-align:left;
+    font-size:14px;
+    color:#979494
+}
+@media(max-width:600px){input{
+    font-size: 14px;
+    padding:10px;
+    width: 93.5%;
+}} */

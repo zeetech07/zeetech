@@ -1,0 +1,172 @@
+/* Background image container */
+.bgimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bgimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Main container for layout */
+.containerrr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Form section */
+.right-sectionnn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Form container */
+.form-containerrr {
+    background: #fff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 472px;
+    transition: transform 0.3s ease;
+    margin-top: 74px;
+    height: auto;
+}
+
+/* On hover */
+.form-containerrr:hover {
+    transform: translateY(-5px);
+}
+
+/* Form and inputs styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.input-group input {
+    width: 48%;
+}
+
+input,
+#emaill,
+#mobilee{
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 15px;
+}
+#first-namee ,#last-namee {
+    margin-bottom: 15px;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+
+input:focus {
+    border-color: #ff4757;
+    box-shadow: 0px 0px 8px rgba(255, 71, 87, 0.3);
+}
+
+/* Buttons */
+.sssubmit-btn,
+.broucherrr {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sssubmit-btn {
+    background: #e81818;
+    color: white;
+}
+.sssubmit-btn:hover{
+    background-color:#1a0153;
+}
+
+.broucherrr:hover {
+    background: #e81818;
+   
+}
+
+.broucherrr {
+    background-color:#1a0153;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Headings */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    /* .input-group {
+        flex-direction: column;
+    } */
+
+    .form-containerrr {
+        padding: 30px;
+    }
+    .input-group input {
+        width: 48%;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-containerrr {
+        padding: 20px;
+    }
+
+    .sssubmit-btn,
+    .broucherrr {
+        font-size: 14px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+    .input-group input {
+        width: 48%;
+    }
+}
