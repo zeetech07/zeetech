@@ -1,55 +1,3 @@
-{% comment %} <section>
-        <div class="footer">
-            <div class="add">
-                <h4>ADDRESS</h4>
-                <hr>
-                <p>{{footer_data.address}}</p>
-            
-            <div class="email">
-                <h4 class="email-heading">EMAIL ID</h4>
-                 <p>{{footer_data.email}}</p>
-               
-                </div>
-                <div class="follow">
-                    <h4>FOLLOW US</h4>
-                    <hr class="line">
-                    <a href="{{footer_data.facebook}}"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="{{footer_data.instagram}}"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="{{footer_data.whatsapp}}"><i class="fa-brands fa-whatsapp"></i></a>
-                </div>  
-            </div>
-          
-            <div class="quick-link">
-                
-                <h4>QUICK LINK</h4>
-                <hr>
-                <ul>
-                  <a href=""><li>Placement</li></a>
-                   <a href=""><li>Blogs</li></a>
-                    <a href=""><li>Contact us</li></a>
-                </ul>
-            </div>
-            <div class="course">
-                <h4>OUR COURSES</h4>
-                <hr class="line">
-                
-                    <ul>
-                     {% for course in all_course %}
-                        <li><a href="{% url 'courses' %}">{{course.course_name}}</a></li>                
-                     {% endfor %}
-                    </ul>
-               
-            </div>
-            <div class="enquiry">
-                <h6>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam sed earum, ut perferendis inventore ex culpa quos repellat incidunt illo, quam magnam dolore consequatur laudantium quia rerum! Adipisci, placeat eius.</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, laudantium.</p>
-                <div class="but">
-                    <a href="{% url 'contactus' %}"><button>Inquire Now <i class="fa-solid fa-arrow-right"></i></button></a>
-                </div>  
-            </div>
-            
-        </div>
-    </section> {% endcomment %}
 
 {% comment %} ...................................................................................................................... {% endcomment %}
 
@@ -64,20 +12,20 @@
             </div>
 
             <!-- Address Section -->
-            <div class="footer-section">
+            <div class="footer-section text-start">
                 <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
                 <hr>
                  <p>{{footer_data.address}}</p>
 
-                <div class="footer-section2">
+                <div class="footer-section2 text-start">
                     <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
                     <p>📞 +91-22-21581400</p>
-                    <p>📧<a href="mailto:zeeshan@gmail.com"><p>{{footer_data.email}}</p></a></p>
+                    <p><a href="mailto:zeeshan@gmail.com"><p>📧 {{footer_data.email}}</p></a></p>
                 </div>
             </div>
 
             <!-- Contact Section -->
-            <div class="footer-section">
+            <div class="footer-section text-start">
                 <div class="quick-link">
                     <h3><i class="fas fa-link"></i> Quick Links</h3>
                     <hr>
@@ -92,7 +40,7 @@
             </div>
 
             <!-- Services Section -->
-            <div class="footer-section">
+            <div class="footer-section text-start">
                 <h3><i class="fas fa-cogs"></i> Our Courses</h3>
                 <hr class="line">
                <ul>
@@ -103,7 +51,7 @@
             </div>
 
             <!-- Social Media Section -->
-            <div class="footer-section">
+            <div class="footer-section text-start">
                 <h3><i class="fas fa-share-alt"></i> Follow Us</h3> 
                 <hr class="line">
                 <!-- <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
@@ -134,17 +82,6 @@
                 
             </div> {% endcomment %}
 
-            <!-- Address Section -->
-            {% comment %} <div class="footer-section">
-                <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
-                        <p>{{footer_data.address}}</p>
-
-                <div class="footer-section2">
-                    <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
-                    <p>📞 +91-22-21581400</p>
-                    <p>📧 <a href="mailto:zeeshan@gmail.com"> <p>{{footer_data.email}}</p></a></p>
-                </div>
-            </div> {% endcomment %}
 
             <!-- Contact Section -->
             {% comment %} <div class="footer-section">
@@ -200,67 +137,3 @@
 
 {% comment %} ............................................................................................................... {% endcomment %}
 
-  {% comment %} <footer class="footer">
-    <div class="footer-container">
-
-      <!-- Logo Section -->
-      <div class="footer-logo">
-        <img src="{% static 'images/zeetechacademylogo.jpeg' %}" alt="Zeetech Logo">
-        <p>Innovate | Inspire | Impact</p>
-      </div>
-
-      <!-- Address & Contact -->
-      <div class="footer-section">
-        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
-        <p>{{footer_data.address}}</p>
-     
-
-        <div class="footer-section2">
-          <h3><i class="fas fa-phone-alt"></i> Contact Us</h3>
-          <p>📞 +91-22-21581400</p>
-          <p>📧 <a href="mailto:zeeshan@gmail.com">{{footer_data.email}}</a></p>
-        </div>
-      </div>
-
-      <!-- Quick Links -->
-      <div class="footer-section">
-        <div class="quick-link">
-          <h3><i class="fas fa-link"></i> Quick Links</h3>
-          <ul>
-            <a href="#"><li><i class="fas fa-home"></i> Home</li></a>
-            <a href="#"><li><i class="fas fa-info-circle"></i> About Us</li></a>
-            <a href="#"><li><i class="fas fa-cogs"></i> Services</li></a>
-            <a href="#"><li><i class="fas fa-phone-alt"></i> Contact</li></a>
-            <a href="#"><li><i class="fas fa-blog"></i> Blog</li></a>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Courses -->
-      <div class="footer-section">
-        <h3><i class="fas fa-cogs"></i> Our Courses</h3>
-       <ul>
-                     {% for course in all_course %}
-                        <li><a href="{% url 'courses' %}">{{course.course_name}}</a></li>                
-                     {% endfor %}
-                    </ul>
-      </div>
-
-      <!-- Social Media -->
-      <div class="footer-section">
-        <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
-        <div class="social-icons">
-           <a href="{{footer_data.facebook}}"><i class="fab fa-facebook-f"></i></a>
-           <a href="{{footer_data.whatsapp}}"><i class="fab fa-twitter"></i></a>
-           <a href="{{footer_data.instagram}}"><i class="fab fa-instagram"></i></a>
-
-        </div>
-        <button>Enquire Now</button>
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 Zeetech Academy | Designed with ❤️</p>
-    </div>
-  </footer> {% endcomment %}

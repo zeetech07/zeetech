@@ -1,13 +1,9 @@
-    {% extends 'base.html' %}
-    {% load static %}
-    {% block content %}
-       
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
-
-
-
-
-
+<!-- Add ScrollReveal.js library near the top of your page -->
+<script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 
 <!-- Popup Form Messages -->
 {% if messages %}
@@ -22,40 +18,35 @@
   </div>
 {% endif %} 
 
-   
-
-
-  <div class="contact-popup"> 
-        <div class="boxs">
-            <div class="form">
-                <form method="POST" action="{% url 'contact' %}">
-                    {% csrf_token %}
-                    <div class="close">&times;</div>
-                    <h1>Contact us</h1>
-                    <div class="form-group">
-                        <input type="text" placeholder="Firstname" class="form-control" name="first_name">
-                        <input type="text" placeholder="Lastname" class="form-control" name="last_name">
-                    </div>
-                    <div class="formm-group">
-                        <input type="email" placeholder="Email" class="form-control" name="email">
-                        <input type="number" placeholder="Phone number" class="form-control" name="mobile">
-                        <small class="error"></small>
-                    </div>
-                    <div>
-                        <textarea class="text" id="message" placeholder="Message...." name="message"></textarea>
-                    </div>
-                    <a href="{% url 'contact' %}"></a><button type="submit" class="btn">Submit</button></a>
+<div class="contact-popup"> 
+    <div class="boxs">
+        <div class="form">
+            <form method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="close">&times;</div>
+                <h1>Contact us</h1>
+                <div class="form-group">
+                    <input type="text" placeholder="Firstname" class="form-control" name="first_name">
+                    <input type="text" placeholder="Lastname" class="form-control" name="last_name">
                 </div>
-                </form>
+                <div class="formm-group">
+                    <input type="email" placeholder="Email" class="form-control" name="email">
+                    <input type="number" placeholder="Phone number" class="form-control" name="mobile">
+                    <small class="error"></small>
+                </div>
+                <div>
+                    <textarea class="text" id="message" placeholder="Message...." name="message"></textarea>
+                </div>
+                <a href="{% url 'contact' %}"></a><button type="submit" class="btn">Submit</button></a>
             </div>
-        </div>   
+            </form>
+        </div>
+    </div>   
 
-    <!-- yaha navbar hai  -->
-
-<div class="bgimg">
+<!-- Background image with animation class -->
+<div class="bgimg animate-fade-in">
     <img src="{% static 'images/gif.jpg' %}" alt="Background">
 </div>
-
 
 {% if messages %}
   <div id="normal-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
@@ -69,8 +60,8 @@
   </div>
 {% endif %}
 
-<div class="containerrr">   
-    <!-- Right Section  -->
+<!-- Form container with scroll animation class -->
+<div class="containerrr animate-slide-right">   
     <div class="right-sectionnn">
         <div class="form-containerrr">
             <h2>Let's Talk About Growth</h2>
@@ -91,156 +82,219 @@
     </div>
 </div>
 
-
-
- <!-- first time jo likha tha courses wala aquib wala code  -->
-
- <section id="cours" class="course-section">
-    <h1 style="color:black;font-size:2 rem;">Our Courses</h1>
+<!-- Courses section with animation class -->
+<section id="cours" class="course-section animate-fade-up">
+    <h1 style="color:black;font-size:2 rem;" class="animate-title">Our Courses</h1>
     <div class="buttons">
     <a href="{% url 'courses' %}"><button class="see-all-buttonn">See All</button></a>
     </div>
     <div class="course__container">
-
         {% for course in course %}
-        <article class="course__article">
+        <article class="course__article animate-card">
             <div class="course__data">
                 <img src="{{ course.image.url }}" alt="course image" class="course__img">
                 <h1 class="card__title">{{ course.course_name }}</h1>
-                {% comment %} <div class="tech-stack"> 
-                    <span><i class="fa-brands fa-python"></i></span>
-                    <span><i class="fa-solid fa-robot"></i></span>
-                    <span><i class="fa-solid fa-chart-pie"></i></span>
-                    <span><i class="fa-solid fa-database"></i></span> 
-                </div> {% endcomment %}
                 <p class="course__description"><i class="fa-solid fa-clock"> </i> {{course.course_duration}} Online & Offline Training</p>
                 <div class="buttonss">
                     <button style="border:none;" class="brochure-btnnn">
                         <a href="{% url 'broucher' course.id %}" id="Download Brochure">Download Brochure <i class="fa-regular fa-file"></i></a>
                     </button>
-                   <a style="text-decoration:none;" href="{% url 'detail' course.id %}"> <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button> </a>
-                                     
+                   <a style="text-decoration:none;" href="{% url 'detail' course.id %}"> <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button> </a>                     
                 </div>
             </div>
         </article>
-    {% endfor %}
-
+        {% endfor %}
     </div>
-
-    {% comment %} yeh pop up form hai for councelling wala  {% endcomment %}
-
-   
-   
 </section>
-        
-      
-        
 
+{% include 'home/parameter.html' %}
+<script src="{%  static 'js/parameter.js' %}" defer></script>
 
+{% include 'home/career.html' %}
+<script src="{%  static 'js/career.js' %}" defer></script>
 
+{% include 'home/roadmapp.html' %}
 
-        {% include 'home/parameter.html' %}
-        <script src="{%  static 'js/parameter.js' %}" defer></script>
+{% include 'home/services.html' %}
 
-        {% include 'home/career.html' %}
-        <script src="{%  static 'js/career.js' %}" defer></script>
-        
-        {% include 'home/roadmapp.html' %}
+{% include 'home/course_slider.html' %}
+<script src="{%  static 'js/course_slider.js' %}" defer></script>
 
-        {% include 'home/services.html' %}
+{% include 'home/placement.html' %}
+<script src="{%  static 'js/placement.js' %}" defer></script>
 
-        {% include 'home/course_slider.html' %}
-        <script src="{%  static 'js/course_slider.js' %}" defer></script>
+{% include 'home/faq.html' %}
+<script src="{%  static 'js/faq.js' %}" defer></script>
 
-        {% include 'home/placement.html' %}
-        <script src="{%  static 'js/placement.js' %}" defer></script>
+{% include 'home/companytieups.html' %}
+<script src="{%  static 'js/companytieups.js' %}" defer></script>
 
-        {% include 'home/faq.html' %}
-        <script src="{%  static 'js/faq.js' %}" defer></script>
-        
-        {% include 'home/companytieups.html' %}
-        <script src="{%  static 'js/companytieups.js' %}" defer></script>
-
-        {% include 'home/experts.html' %}
-      
-
-
-    <script>
-
-    setTimeout(function () {
-    var normal = document.getElementById('normal-messages');
-    if (normal) normal.style.display = 'none';
-
-    var popup = document.getElementById('popup-messages');
-    if (popup) popup.style.display = 'none';
-    }, 3000); 
-
-
- //ye pop up wala start  hai// 
-            const contactPopup = document.querySelector(".contact-popup");
-            const closeBtn = document.querySelector(".close");
-            const form = document.querySelector("form");
-            const mobileInput = document.querySelector("input[name='mobile']");
-            const errorMessage = document.querySelector(".form-group .error"); // Existing Small Tag Ko Pakda
-            
-            // Popup Show after 5 Seconds
-            setTimeout(() => {
-                contactPopup.classList.add("show");
-            }, 8000);
-            
-            // Close Button Click
-            closeBtn.addEventListener("click", () => {
-                contactPopup.classList.remove("show");
-            });
-            
-            // Mobile Validation Function
-            function validateMobile() {
-                let mobileValue = mobileInput.value.trim();
-            
-                if (mobileValue === "") {
-                    errorMessage.textContent = "**Phone number is required**";
-                    errorMessage.style.color = "red";
-                    errorMessage.style.fontSize = "13px";
-                    return false;
-                } else if (!/^\d{10}$/.test(mobileValue)) {
-                    errorMessage.textContent = "**Please enter a valid 10 digit number**";
-                    errorMessage.style.color = "red";
-                    errorMessage.style.fontSize = "13px";
-                    return false;
-                } else {
-                    errorMessage.textContent = ""; // Error Remove
-                    return true;
-                }
-            }
-            
-            // Form Submit Only
-            form.addEventListener("submit", function (e) {
-                let isValid = validateMobile();
-            
-                if (!isValid) {
-                    e.preventDefault(); // Form Submit Stop
-                }
-            });
-            
-            // Message Hide Automatically After 3 Seconds
-            setTimeout(() => {
-                let msg = document.querySelector("#messages");
-                if (msg) {
-                    msg.style.display = "none";
-                }
-            }, 3000);
-            
-</script>    
-
-
-
-
-
-
- {% endblock %}  
+{% include 'home/experts.html' %}
 
 <script>
-        document.addEventListener("DOMContentLoaded", function () {
+    // ScrollReveal Initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize ScrollReveal
+        const sr = ScrollReveal({
+            origin: 'bottom',
+            distance: '50px',
+            duration: 1000,
+            delay: 200,
+            easing: 'ease-in-out',
+            reset: false
+        });
+        
+        // Common elements to animate
+        sr.reveal('.animate-fade-in', {
+            origin: 'top',
+            distance: '20px',
+            duration: 1200
+        });
+        
+        sr.reveal('.animate-fade-up', {
+            origin: 'bottom',
+            distance: '30px'
+        });
+        
+        sr.reveal('.animate-slide-right', {
+            origin: 'left',
+            distance: '80px',
+            duration: 1200
+        });
+        
+        sr.reveal('.animate-title', {
+            origin: 'left',
+            distance: '50px',
+            duration: 800
+        });
+        
+        // Animate course cards with sequence
+        sr.reveal('.animate-card', {
+            origin: 'bottom',
+            distance: '30px',
+            duration: 800,
+            interval: 200 // Sequence the animations
+        });
+        
+        // Add animations to included templates
+        sr.reveal('.parameter-section', {
+            origin: 'bottom',
+            distance: '30px'
+        });
+        
+        sr.reveal('.career-section h2, .career-section .career-cards', {
+            origin: 'bottom',
+            distance: '40px',
+            interval: 200
+        });
+        
+        sr.reveal('.roadmap-container', {
+            origin: 'left',
+            distance: '80px',
+            duration: 1200
+        });
+        
+        sr.reveal('.services-section h2, .services-section .service-card', {
+            origin: 'bottom',
+            distance: '40px',
+            interval: 150
+        });
+        
+        sr.reveal('.course-slider-section', {
+            origin: 'bottom',
+            distance: '40px'
+        });
+        
+        sr.reveal('.placement-section h2, .placement-section .testimonial', {
+            origin: 'bottom',
+            distance: '30px',
+            interval: 150
+        });
+        
+        sr.reveal('.faq-section h2, .faq-section .faq-item', {
+            origin: 'bottom',
+            distance: '30px',
+            interval: 100
+        });
+        
+        sr.reveal('.company-tieups-section h2, .company-tieups-section .company-logo', {
+            origin: 'bottom',
+            distance: '30px',
+            interval: 100
+        });
+        
+        sr.reveal('.experts-section h2, .experts-section .expert-card', {
+            origin: 'bottom',
+            distance: '30px',
+            interval: 200
+        });
+    });
+
+    // Original popup script
+    setTimeout(function () {
+        var normal = document.getElementById('normal-messages');
+        if (normal) normal.style.display = 'none';
+
+        var popup = document.getElementById('popup-messages');
+        if (popup) popup.style.display = 'none';
+    }, 3000); 
+
+    // Contact popup
+    const contactPopup = document.querySelector(".contact-popup");
+    const closeBtn = document.querySelector(".close");
+    const form = document.querySelector("form");
+    const mobileInput = document.querySelector("input[name='mobile']");
+    const errorMessage = document.querySelector(".formm-group .error");
+    
+    // Popup Show after 8 Seconds
+    setTimeout(() => {
+        contactPopup.classList.add("show");
+    }, 8000);
+    
+    // Close Button Click
+    closeBtn.addEventListener("click", () => {
+        contactPopup.classList.remove("show");
+    });
+    
+    // Mobile Validation Function
+    function validateMobile() {
+        let mobileValue = mobileInput.value.trim();
+    
+        if (mobileValue === "") {
+            errorMessage.textContent = "**Phone number is required**";
+            errorMessage.style.color = "red";
+            errorMessage.style.fontSize = "13px";
+            return false;
+        } else if (!/^\d{10}$/.test(mobileValue)) {
+            errorMessage.textContent = "**Please enter a valid 10 digit number**";
+            errorMessage.style.color = "red";
+            errorMessage.style.fontSize = "13px";
+            return false;
+        } else {
+            errorMessage.textContent = ""; // Error Remove
+            return true;
+        }
+    }
+    
+    // Form Submit Only
+    form.addEventListener("submit", function (e) {
+        let isValid = validateMobile();
+    
+        if (!isValid) {
+            e.preventDefault(); // Form Submit Stop
+        }
+    });
+    
+    // Message Hide Automatically After 3 Seconds
+    setTimeout(() => {
+        let msg = document.querySelector("#messages");
+        if (msg) {
+            msg.style.display = "none";
+        }
+    }, 3000);
+    
+    // Menu toggle
+    document.addEventListener("DOMContentLoaded", function () {
         const menuContainer = document.querySelector(".menu-container");
         const menuToggle = document.getElementById("menu-toggle");
         
@@ -248,88 +302,108 @@
             event.preventDefault();
             menuContainer.classList.toggle("active");
         });
+        
         document.addEventListener("click", function (event) {
             if (!menuContainer.contains(event.target) && !menuToggle.contains(event.target)) {
                 menuContainer.classList.remove("active");
             }
         });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
+        
         const exploreBtn = document.querySelector(".btn[href='#']"); // Target the "Explore Courses" button
         const dropdown = document.querySelector(".dd2");
 
-        exploreBtn.addEventListener("click", function (event) {
-            event.preventDefault();
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        });
-
-
-    });
-
-
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        if (exploreBtn && dropdown) {
+            exploreBtn.addEventListener("click", function (event) {
                 event.preventDefault();
-                alert("Form submitted successfully!");
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
             });
-       
-
-{% comment %} yeh mera popup2 wala js hai ............. {% endcomment %}
-
-const popup = document.getElementById("popup");
-const popupContent = document.querySelector(".popup-content");
-const openPopup = document.getElementById("openPopup");
-const closePopup = document.querySelector(".close");
-const mobileInput = document.getElementById("mobile");
-const submitButton = document.getElementById("submit");
-
-// Open popup
-openPopup.addEventListener("click", () => {
-    popup.style.display = "flex";
-    setTimeout(() => {
-        popup.classList.add("show");
-        popupContent.classList.add("show");
-    }, 1000);
-});
-
-// Close popup
-closePopup.addEventListener("click", () => {
-    closeForm();
-});
-
-window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-        closeForm();
-    }
-});
-
-// Function to close the form
-function closeForm() {
-    popup.classList.remove("show");
-    popupContent.classList.remove("show");
-    setTimeout(() => {
-        popup.style.display = "none";
-    }, 300);
-}
-
-// Validate input
-mobileInput.addEventListener("input", function () {
-    this.value = this.value.replace(/[^0-9]/g, ''); // Allow only numbers
-    if (this.value.length > 10) {
-        this.value = this.value.slice(0, 10); // Restrict to 10 digits
-    }
-});
-
-// Form submission
-submitButton.addEventListener("click", function (event) {
-    if (mobileInput.value.length !== 10) {
-        event.preventDefault();
-        alert("Please enter a valid 10-digit mobile number.");
-    }
-    // else form submit hoke backend pe chala jayega
-});
-
-
-
+        }
+    });
 </script>
 
+<!-- Additional scroll animations for included templates -->
+<script>
+    // Add animation classes to included templates
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add animation classes to parameter.html elements
+        const parameterSection = document.querySelector('.parameter-section');
+        if (parameterSection) {
+            parameterSection.classList.add('animate-fade-up');
+            const parameterItems = parameterSection.querySelectorAll('.parameter-item');
+            parameterItems.forEach(item => item.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to career.html elements
+        const careerSection = document.querySelector('.career-section');
+        if (careerSection) {
+            careerSection.classList.add('animate-fade-up');
+            const careerTitle = careerSection.querySelector('h2');
+            if (careerTitle) careerTitle.classList.add('animate-title');
+            const careerCards = careerSection.querySelectorAll('.career-card');
+            careerCards.forEach(card => card.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to roadmapp.html elements
+        const roadmapSection = document.querySelector('.roadmap-section');
+        if (roadmapSection) {
+            roadmapSection.classList.add('animate-fade-up');
+            const roadmapSteps = roadmapSection.querySelectorAll('.roadmap-step');
+            roadmapSteps.forEach((step, index) => {
+                step.classList.add('animate-card');
+                step.style.transitionDelay = `${index * 0.1}s`;
+            });
+        }
+        
+        // Add animation classes to services.html elements
+        const servicesSection = document.querySelector('.services-section');
+        if (servicesSection) {
+            servicesSection.classList.add('animate-fade-up');
+            const servicesTitle = servicesSection.querySelector('h2');
+            if (servicesTitle) servicesTitle.classList.add('animate-title');
+            const serviceCards = servicesSection.querySelectorAll('.service-card');
+            serviceCards.forEach(card => card.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to course_slider.html elements
+        const sliderSection = document.querySelector('.course-slider-section');
+        if (sliderSection) {
+            sliderSection.classList.add('animate-fade-up');
+            const sliderItems = sliderSection.querySelectorAll('.slider-item');
+            sliderItems.forEach(item => item.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to placement.html elements
+        const placementSection = document.querySelector('.placement-section');
+        if (placementSection) {
+            placementSection.classList.add('animate-fade-up');
+            const testimonials = placementSection.querySelectorAll('.testimonial');
+            testimonials.forEach(testimonial => testimonial.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to faq.html elements
+        const faqSection = document.querySelector('.faq-section');
+        if (faqSection) {
+            faqSection.classList.add('animate-fade-up');
+            const faqItems = faqSection.querySelectorAll('.faq-item');
+            faqItems.forEach(item => item.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to companytieups.html elements
+        const companySection = document.querySelector('.company-tieups-section');
+        if (companySection) {
+            companySection.classList.add('animate-fade-up');
+            const companyLogos = companySection.querySelectorAll('.company-logo');
+            companyLogos.forEach(logo => logo.classList.add('animate-card'));
+        }
+        
+        // Add animation classes to experts.html elements
+        const expertsSection = document.querySelector('.experts-section');
+        if (expertsSection) {
+            expertsSection.classList.add('animate-fade-up');
+            const expertCards = expertsSection.querySelectorAll('.expert-card');
+            expertCards.forEach(card => card.classList.add('animate-card'));
+        }
+    });
+</script>
+
+{% endblock %}
