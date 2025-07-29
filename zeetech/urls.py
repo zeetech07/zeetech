@@ -28,7 +28,7 @@ urlpatterns = [
     path('broucher/',include('broucher.urls')),
     path('blog/',include('blog.urls')),
     path('contact/',include('contact.urls')),
-
+    path('sitemap/', TemplateView.as_view(template_name='sitemap.html'), name='sitemap'),
 
 ]
 if settings.DEBUG:
