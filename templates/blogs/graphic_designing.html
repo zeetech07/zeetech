@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Graphic Designing? - ZeeTech Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #ff5252;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100px;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .intro-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            main { padding: 1rem; }
+            .card-container { grid-template-columns: 1fr; }
+            .intro-image { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h2>What is Graphic Designing?</h2>
+            <p>Graphic Designing is the creative process of visual communication, using typography, imagery, and layout to convey ideas and messages. At ZeeTech Academy, we teach you to craft stunning designs that captivate audiences.</p>
+            <p>It combines art and technology to create visuals for branding, advertising, and digital media, enhancing user experiences across various platforms.</p>
+            <img src="https://images.pexels.com/photos/933255/pexels-photo-933255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Graphic Designing workspace with tablet and design tools" class="intro-image">
+        </section>
+
+        <section id="components">
+            <h2>Core Responsibilities of a Graphic Designer</h2>
+            <ul>
+                <li><strong>Concept Development:</strong> Brainstorming and sketching ideas to meet client objectives.</li>
+                <li><strong>Visual Creation:</strong> Designing logos, brochures, websites, and social media graphics.</li>
+                <li><strong>Typography & Layout:</strong> Selecting fonts and arranging elements for aesthetic appeal.</li>
+                <li><strong>Brand Consistency:</strong> Ensuring designs align with brand identity and guidelines.</li>
+                <li><strong>Collaboration:</strong> Working with clients, marketers, and developers to refine designs.</li>
+            </ul>
+        </section>
+
+        <section id="careers">
+            <h2>Graphic Designing Career Paths</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Brand Designer</h3>
+                    <p>Creates visual identities, including logos and style guides, to define a brand’s image.</p>
+                </div>
+                <div class="card">
+                    <h3>UI/UX Designer</h3>
+                    <p>Designs user-friendly interfaces for websites and apps, focusing on usability and aesthetics.</p>
+                </div>
+                <div class="card">
+                    <h3>Advertising Designer</h3>
+                    <p>Produces visuals for print and digital ads, such as banners and billboards.</p>
+                </div>
+                <div class="card">
+                    <h3>Motion Graphics Designer</h3>
+                    <p>Crafts animated visuals for videos, films, and online content.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <h2>Applications of Graphic Designing</h2>
+            <p>Graphic Designing shapes visual communication across industries:</p>
+            <ul>
+                <li><strong>Marketing:</strong> Creating compelling ads and social media visuals to engage audiences.</li>
+                <li><strong>Entertainment:</strong> Designing posters, game art, and motion graphics for media.</li>
+                <li><strong>Technology:</strong> Enhancing user experiences through intuitive app and website designs.</li>
+                <li><strong>Publishing:</strong> Crafting book covers, magazines, and layouts for print and digital media.</li>
+            </ul>
+        </section>
+
+        <section id="why-learn">
+            <h2>Become a Graphic Designer with ZeeTech Academy</h2>
+            <p>ZeeTech Academy’s Graphic Designing courses prepare you for a creative career with:</p>
+            <ul>
+                <li>Hands-on projects building professional portfolios.</li>
+                <li>Mentorship from experienced designers and industry experts.</li>
+                <li>Flexible online and in-person learning options.</li>
+                <li>Career support, including job placement and freelance guidance.</li>
+            </ul>
+            <a href="https://zeetechacademy.com/courses" class="cta">Start Your Graphic Designing Journey</a>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for internal links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -1,59 +1,139 @@
-/* Background image container */
-.bgimg {
-    position: absolute;
+/* Contact Popup */
+.contact-popup {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    z-index: -1;
-    overflow: hidden;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.bgimg img {
+.contact-popup.show {
+    display: flex;
+}
+
+.contact-popup .boxs {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+
+.contact-popup .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.contact-popup .form-group,
+.contact-popup .formm-group {
+    margin-bottom: 15px;
+}
+
+.contact-popup input,
+.contact-popup textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-popup .btn {
+    background: #e81818;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+}
+
+.contact-popup .btn:hover {
+    background: #1a0153;
+}
+
+/* Background Image Slideshow */
+.bgimg {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
 }
 
-/* Main container for layout */
+.banner-image.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Form Overlay */
 .containerrr {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
 }
 
-/* Form section */
+/* Form Section */
 .right-sectionnn {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
 }
 
-/* Form container */
+/* Form Container */
 .form-containerrr {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.95);
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
     max-width: 472px;
     transition: transform 0.3s ease;
-    margin-top: 74px;
+    margin-top: 85px;
     height: auto;
+    margin-left: 850px;
 }
 
-/* On hover */
 .form-containerrr:hover {
     transform: translateY(-5px);
 }
 
-/* Form and inputs styling */
-form {
+/* Form and Inputs Styling */
+.form-containerrr form {
     display: flex;
     flex-direction: column;
 }
@@ -63,13 +143,16 @@ form {
     justify-content: space-between;
     gap: 10px;
 }
+
 .input-group input {
     width: 48%;
 }
 
 input,
 #emaill,
-#mobilee{
+#mobilee,
+#first-namee,
+#last-namee {
     padding: 12px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -79,16 +162,6 @@ input,
     width: 100%;
     margin-bottom: 15px;
 }
-#first-namee ,#last-namee {
-    margin-bottom: 15px;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
 
 input:focus {
     border-color: #ff4757;
@@ -112,61 +185,149 @@ input:focus {
     background: #e81818;
     color: white;
 }
-.sssubmit-btn:hover{
-    background-color:#1a0153;
+
+.sssubmit-btn:hover {
+    background: #1a0153;
+}
+
+.broucherrr {
+    background: #1a0153;
+    margin-top: 10px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
 }
 
 .broucherrr:hover {
     background: #e81818;
-   
-}
-
-.broucherrr {
-    background-color:#1a0153;
-    margin-top: 10px;
-    color: #fff;
-    text-decoration: none;
 }
 
 /* Headings */
-h2 {
+.form-containerrr h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    font-size: 24px;
+    font-family: var(--body-font);
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    /* .input-group {
-        flex-direction: column;
-    } */
+/* Courses Section */
+.course-section {
+    margin-top: 120px;
+    padding: 50px 20px;
+    position: relative;
+    z-index: 1;
+    background: #f4f4f4;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1023px) {
+    .bgimg {
+        height: 80vh;
+    }
+
+    .banner-image {
+        object-position: center center;
+    }
 
     .form-containerrr {
+        margin: 60px auto;
+        max-width: 400px;
         padding: 30px;
     }
+
+    .right-sectionnn {
+        justify-content: center;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
     .input-group input {
-        width: 48%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .bgimg {
+        height: 70vh;
+    }
+
+    .form-containerrr {
+        max-width: 90%;
+        padding: 25px;
+        margin-top: -165px;
+    }
+
+    .containerrr {
+        padding: 10px;
+    }
+
+    .course-section {
+        margin-top: 100px;
+        padding: 30px 10px;
     }
 }
 
 @media (max-width: 480px) {
-    h2 {
-        font-size: 1.5rem;
+    .bgimg {
+        height: 60vh;
     }
 
     .form-containerrr {
+        max-width: 95%;
         padding: 20px;
+        margin-top: -207px;
+    }
+
+    .form-containerrr h2 {
+        font-size: 20px;
     }
 
     .sssubmit-btn,
     .broucherrr {
         font-size: 14px;
+        padding: 10px;
     }
 
-    input {
+    input,
+    #emaill,
+    #mobilee,
+    #first-namee,
+    #last-namee {
         font-size: 14px;
+        padding: 10px;
     }
-    .input-group input {
-        width: 48%;
+
+    .contact-popup .boxs {
+        padding: 15px;
+        max-width: 95%;
+    }
+
+    .contact-popup .close {
+        font-size: 20px;
+        right: 15px;
+    }
+
+    .course-section {
+        margin-top: 80px;
+        padding: 20px 10px;
+    }
+}
+
+@media (min-width: 1440px) {
+    .bgimg {
+        height: 100vh;
+    }
+
+    .banner-image {
+        object-position: center;
+    }
+
+    .form-containerrr {
+        margin-left: 850px;
+        margin-top: 85px;
+        max-width: 472px;
     }
 }

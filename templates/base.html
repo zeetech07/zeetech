@@ -4,7 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zeetech Acedemy</title>
+    <title>Zeetech Academy</title>
+    <link rel="canonical" href="{{ request.build_absolute_uri }}">
+
+    {% block meta %}
+    <!-- Default SEO Meta Tags -->
+    <meta name="description" content="Zeetech Academy offers industry-relevant IT training, internships, projects, and job assistance.">
+    <meta name="keywords" content="Zeetech Academy, IT Training, Internships, Projects, Job Support, Courses">
+    <meta name="author" content="Zeetech Academy">
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:title" content="Zeetech Academy - Learn. Build. Get Hired.">
+    <meta property="og:description" content="Join Zeetech Academy for expert-led training and real-world career opportunities.">
+    <meta property="og:image" content="{% static 'images/og-default.jpg' %}">
+    <meta property="og:url" content="{{ request.build_absolute_uri }}">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zeetech Academy - Career-Focused IT Learning">
+    <meta name="twitter:description" content="Hands-on courses, internships, and job support with Zeetech Academy.">
+    <meta name="twitter:image" content="{% static 'images/twitter-default.jpg' %}">
+    {% endblock %}
+
+    
+
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
@@ -20,11 +44,11 @@
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/contactform.css' %}">
     <link rel="stylesheet" href="{% static 'css/career.css' %}">
-     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     <link rel="stylesheet" href="{% static 'css/blog_detail.css' %}">  
     <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
     <link rel="stylesheet" href="{% static 'css/experts.css' %}"> 
-   <link rel="stylesheet" href="{% static 'css/aboutus.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}"> 
     <link rel="stylesheet" href="{% static 'css/roadmapp.css' %}">
     <link rel="stylesheet" href="{% static 'css/councelling.css' %}">
     {% comment %} <link rel="stylesheet" href="{% static 'css/popup2.css' %}"> {% endcomment %}
@@ -72,7 +96,6 @@
 
 
 
-
     <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script> -->
 
@@ -89,6 +112,3 @@
     {% comment %} <script src="{% static 'js/popup2.js' %}" defer></script>   {% endcomment %}
     </body>
 </html>
-
-
-

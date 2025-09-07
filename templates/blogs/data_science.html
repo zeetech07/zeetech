@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Data Science? - ZeeTech Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #ff5252;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100px;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .intro-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            main { padding: 1rem; }
+            .card-container { grid-template-columns: 1fr; }
+            .intro-image { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h2>What is Data Science?</h2>
+            <p>Data Science is a dynamic field that merges mathematics, statistics, computer science, and domain knowledge to extract valuable insights from data. At ZeeTech Academy, we empower you to transform raw data into actionable solutions.</p>
+            <p>It encompasses collecting, cleaning, analyzing, and visualizing data to solve real-world challenges, driving innovation in businesses, healthcare, and beyond.</p>
+            <img src="https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Data Science visualizations on laptop" class="intro-image">
+        </section>
+
+        <section id="components">
+            <h2>Core Components of Data Science</h2>
+            <ul>
+                <li><strong>Data Collection:</strong> Sourcing data from databases, APIs, or real-time streams.</li>
+                <li><strong>Data Cleaning:</strong> Correcting errors and standardizing formats for accuracy.</li>
+                <li><strong>Data Analysis:</strong> Using statistical tools to identify trends and patterns.</li>
+                <li><strong>Machine Learning:</strong> Creating models to predict outcomes or automate tasks.</li>
+                <li><strong>Data Visualization:</strong> Designing charts and dashboards to present insights clearly.</li>
+            </ul>
+        </section>
+
+        <section id="careers">
+            <h2>Data Science Career Paths</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Data Analyst</h3>
+                    <p>Focuses on interpreting data, creating reports, and visualizing insights to support business decisions.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Scientist</h3>
+                    <p>Builds predictive models and applies machine learning to solve complex problems across industries.</p>
+                </div>
+                <div class="card">
+                    <h3>Data Engineer</h3>
+                    <p>Designs and maintains data pipelines to ensure efficient data flow and storage.</p>
+                </div>
+                <div class="card">
+                    <h3>Machine Learning Engineer</h3>
+                    <p>Specializes in developing and deploying machine learning models for real-world applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <h2>Applications of Data Science</h2>
+            <p>Data Science impacts numerous industries with innovative solutions:</p>
+            <ul>
+                <li><strong>Healthcare:</strong> Enhancing diagnostics and personalizing patient care.</li>
+                <li><strong>Finance:</strong> Detecting fraud and optimizing investment strategies.</li>
+                <li><strong>Marketing:</strong> Targeting audiences and predicting customer behavior.</li>
+                <li><strong>Logistics:</strong> Optimizing supply chains and delivery routes.</li>
+            </ul>
+        </section>
+
+        <section id="why-learn">
+            <h2>Master Data Science with ZeeTech Academy</h2>
+            <p>ZeeTech Academy offers cutting-edge Data Science courses to launch your career. Benefits include:</p>
+            <ul>
+                <li>Hands-on projects with industry-relevant datasets.</li>
+                <li>Guidance from experienced data scientists.</li>
+                <li>Flexible learning options, online or in-person.</li>
+                <li>Career services, including job placement support.</li>
+            </ul>
+            <a href="https://zeetechacademy.com/courses" class="cta">Enroll in Our Data Science Program</a>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for internal links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

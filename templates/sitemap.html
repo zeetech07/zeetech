@@ -1,0 +1,96 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}Sitemap{% endblock %}
+
+{% block content %}
+<style>
+    .sitemap-container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+    .sitemap-container h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #000;
+    }
+    .sitemap-list {
+        list-style: none;
+        padding: 0;
+    }
+    .sitemap-list li {
+        margin: 10px 0;
+    }
+    .sitemap-list li a {
+        text-decoration: none;
+        color: #000000; /* Black text */
+        font-size: 18px;
+        transition: color 0.3s;
+    }
+    .sitemap-list li a:hover {
+        color: red; /* Red on hover */
+    }
+    .nested-list {
+        padding-left: 20px;
+        list-style-type: circle;
+    }
+</style>
+
+<div class="sitemap-container">
+<br>
+<br>
+<br>
+    <h1>Sitemap</h1>
+    <ul class="sitemap-list">
+        <li><a href="https://www.zeetechacademy.in/">Home</a></li>
+        
+        <li>
+            <a href="https://www.zeetechacademy.in/academy/courses/">Our Courses</a>
+            <ul class="nested-list">
+                <li><a href="https://www.zeetechacademy.in/academy/detail/25/">Data Science</a></li>
+                <li><a href="https://www.zeetechacademy.in/academy/detail/23/">Digital Marketing</a></li>
+                <li><a href="https://www.zeetechacademy.in/academy/detail/21/">Python Full Stack</a></li>
+                <li><a href="https://www.zeetechacademy.in/academy/detail/22/">Data Analyst</a></li>
+                <li><a href="https://www.zeetechacademy.in/academy/detail/24/">Software Testing</a></li>
+            </ul>
+        </li>
+        
+        <li>
+            <a href="#">Contact</a>
+            <ul class="nested-list">
+                <li><a href="https://www.zeetechacademy.in/contact/councelling/">Get Expert Career Advice</a></li>
+                <li><a href="https://www.zeetechacademy.in/contact/contactus/">Contact Us</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Blog</a>
+            <ul class="nested-list">
+                <li><a href="https://www.zeetechacademy.in/blog/aboutus/">About Us</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/">All Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Data%20Science">Data Science Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Full%20Stack">Full Stack Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Digital%20Marketing">Digital Marketing Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Software%20Testing">Software Testing Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Stock%20Market">Stock Market Blogs</a></li>
+                <li><a href="https://www.zeetechacademy.in/blog/all_blog/#Data%20Analyst">Data Analyst Blogs</a></li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#">Brochures</a>
+            <ul class="nested-list">
+                <li><a href="https://www.zeetechacademy.in/broucher/broucher/25/">Zee Tech Academy Brochure</a></li>
+                <li><a href="https://www.zeetechacademy.in/broucher/broucher/23/">Data Science Brochure</a></li>
+                <li><a href="https://www.zeetechacademy.in/broucher/broucher/21/">Python Full Stack Brochure</a></li>
+                <li><a href="https://www.zeetechacademy.in/broucher/broucher/22/">Data Analyst Brochure</a></li>
+                <li><a href="https://www.zeetechacademy.in/broucher/broucher/24/">Software Testing Brochure</a></li>
+            </ul>
+        </li>
+
+        <li><a href="https://www.zeetechacademy.in/faqs/">FAQs</a></li>
+        <li><a href="https://www.zeetechacademy.in/careers/">Careers / Opportunities</a></li>
+    </ul>
+</div>
+{% endblock %}

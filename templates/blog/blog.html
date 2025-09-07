@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 
-{% comment %} {% block navbar %}
-    {% include 'include/navbar.html' %}
-{% endblock %} {% endcomment %}
-{% load static %}
 {% block content %}
+{% load static %}
 <br>
 <br>
 
@@ -12,26 +9,20 @@
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
     <div class="bloglist-button-group">
-        <a href="{% url 'all_blog' %}"><button class="bloglist-btn">All</button></a>
-        {% for category in categories %}
-            <a href="{% url 'all_blog' %}?category={{ category.name }}">
-                <button class="bloglist-btn">{{ category.name }}</button>
-            </a>
-        {% endfor %}
+        {% comment %} <a href="{% url 'all_blog' %}"><button class="bloglist-btn">All</button></a> {% endcomment %}
+        <a href="{% url 'data_analyst' %}"><button class="bloglist-btn">Data Analyst</button></a>
+        <a href="{% url 'data_science' %}"><button class="bloglist-btn">Data Science</button></a>
+        <a href="{% url 'digital_marketing' %}"><button class="bloglist-btn">Digital Marketing</button></a>
+        <a href="{% url 'python_full_stack' %}"><button class="bloglist-btn">Python Full Stack</button></a>
+        <a href="{% url 'software_testing' %}"><button class="bloglist-btn">Software Testing</button></a>
+        <a href="{% url 'stock_marketing' %}"><button class="bloglist-btn">Stock Marketing</button></a>
+        <a href="{% url 'cloud_computing' %}"><button class="bloglist-btn">Cloud Computing</button></a> 
+        <a href="{% url '360_degree' %}"><button class="bloglist-btn">360° Course</button></a> 
+        <a href="{% url 'graphic_designing' %}"><button class="bloglist-btn">Graphic Designing</button></a> 
     </div>
 
     <div class="bloglist-box">
-        {% for blog in blogs %}
-        <div class="bloglist-card">
-            <a href="{% url 'blog_detail' blog.id %}">
-                <div class="bloglist-image">
-                    <img src="{{ blog.image.url }}" alt="Blog Image">
-                </div>
-            </a>
-            <h3 class="bloglist-title">{{ blog.title }}</h3>
-            <p class="bloglist-description">{{ blog.description }}</p>
-        </div>
-        {% endfor %}
+        <!-- Optional: Add static content or remove this section if not needed -->
     </div>
 </div>
 {% endblock %}

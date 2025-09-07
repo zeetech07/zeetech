@@ -1,5 +1,5 @@
 nav {
-    height: 70px;
+    height: 80px;
     background-color:white;
     display: flex;
     justify-content: space-between;
@@ -54,7 +54,7 @@ nav {
 }
 .logo img {
     margin-top: -12px;
-    height: 55px;
+    height: 65px;
     width: auto;
     object-fit: contain;
     margin-right:11px;

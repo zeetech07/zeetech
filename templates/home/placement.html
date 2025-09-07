@@ -1,11 +1,21 @@
 {% if placed_students %}
     {% for student in placed_students %}
     <div class="student-card">
-        <img src="{{ student.photo }}" alt="Student Image">
+        <img src="{{ student.photo.url }}" alt="Student Image">
+
+        <img src="{{ student.photo.url|default:'/static/default-avatar.png' }}" alt="Student Image">
+
+        {% if student.photo %}
+            <img src="{{ student.photo.url }}" alt="Student Image">
+        {% else %}
+            <img src="/static/default-avatar.png" alt="Default Avatar">
+        {% endif %}
+
+
         <div class="student-info">
             <h4>{{ student.name }}</h4>
             <p><strong>Company:</strong> {{ student.company }}</p>
-            <p><strong>Package:</strong> {{ student.package }}</p>
+            {% comment %} <p><strong>Package:</strong> {{ student.package }}</p> {% endcomment %}
             <p><strong>Job Role:</strong> {{ student.job_role }}</p>
         </div>
     </div>
@@ -13,12 +23,3 @@
 {% else %}
     {% comment %} <p>No placements available for this course.</p> {% endcomment %}
 {% endif %}
-
-
-
-
-
-
-
-
-

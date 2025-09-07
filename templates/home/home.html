@@ -1,23 +1,22 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-
+<br>
 <!-- Add ScrollReveal.js library near the top of your page -->
 <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 
 <!-- Popup Form Messages -->
 {% if messages %}
-  <div id="popup-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
+  <div id="normal-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
     {% for message in messages %}
-      {% if 'popup' in message.tags %}
-      <div style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#dc3545{% endif %};">
+      <div style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#e81818{% endif %};">
         {{ message }}
       </div>
-      {% endif %}
     {% endfor %}
   </div>
 {% endif %} 
 
+<!-- Contact Popup -->
 <div class="contact-popup"> 
     <div class="boxs">
         <div class="form">
@@ -37,102 +36,101 @@
                 <div>
                     <textarea class="text" id="message" placeholder="Message...." name="message"></textarea>
                 </div>
-                <a href="{% url 'contact' %}"></a><button type="submit" class="btn">Submit</button></a>
-            </div>
+                <button type="submit" class="btn">Submit</button>
             </form>
         </div>
     </div>   
-
-<!-- Background image with animation class -->
-<div class="bgimg animate-fade-in">
-    <img src="{% static 'images/gif.jpg' %}" alt="Background">
 </div>
 
-{% if messages %}
-  <div id="normal-messages" style="position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 9999;">
-    {% for message in messages %}
-      {% if 'normal' in message.tags %}
-      <div style="padding: 12px 20px; margin: 10px auto; border-radius: 8px; font-weight: bold; color: #fff; background-color: {% if 'success' in message.tags %}#28a745{% else %}#dc3545{% endif %};">
-        {{ message }}
-      </div>
-      {% endif %}
+<!-- Background Image Slideshow with Form Overlay -->
+<!-- Background Image Slideshow with Form Overlay -->
+<div class="bgimg animate-fade-in">
+    {% for banner in banners %}
+<img src="{{ banner.image.url }}" alt="Banner Image {{ banner.id }}" class="banner-image{% if forloop.first %} active{% endif %}" loading="lazy">
+    {% empty %}
+    <img src="{% static 'images/default-banner.jpg' %}" alt="Default Banner" class="banner-image" loading="lazy">
     {% endfor %}
-  </div>
-{% endif %}
-
-<!-- Form container with scroll animation class -->
-<div class="containerrr animate-slide-right">   
-    <div class="right-sectionnn">
-        <div class="form-containerrr">
-            <h2>Let's Talk About Growth</h2>
-            <form method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="input-group"> 
-                    <input type="text" name="first_name" id="first-namee" placeholder="First Name" required>
-                    <input type="text" name="last_name" id="last-namee" placeholder="Last Name" required>
-                </div>
-                <input type="email" id="emaill" name="email" placeholder="Email" required>
-                <input type="tel" id="mobilee" name="mobile" placeholder="Mobile Number" required> 
-                <button type="submit" name="contact_submit" class="sssubmit-btn">Submit</button>
-                <a href="{% url 'download_datascience_brochure' %}">
-                    <button type="button" class="broucherrr">Download Brochure</button>
-                </a>
-            </form>
+    <!-- Form container overlaid on the slideshow -->
+    <div class="containerrr animate-slide-right">
+        <div class="right-sectionnn">
+            <div class="form-containerrr">
+                <h2>Let's Talk About Growth</h2>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" name="first_name" id="first-namee" placeholder="First Name" required>
+                        <input type="text" name="last_name" id="last-namee" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" id="emaill" name="email" placeholder="Email" required>
+                    <input type="tel" id="mobilee" name="mobile" placeholder="Mobile Number" required>
+                    <button type="submit" name="contact_submit" class="sssubmit-btn">Submit</button>
+                    <a href="{% url 'download_datascience_brochure' %}">
+                        <button type="button" class="broucherrr">Download Brochure</button>
+                    </a>
+                </form>
+            </div>
         </div>
     </div>
 </div>
 
 <!-- Courses section with animation class -->
 <section id="cours" class="course-section animate-fade-up">
-    <h1 style="color:black;font-size:2 rem;" class="animate-title">Our Courses</h1>
+    <h1 style="color:black;font-size:2rem;" class="animate-title">Our Courses</h1>
     <div class="buttons">
-    <a href="{% url 'courses' %}"><button class="see-all-buttonn">See All</button></a>
+        <a href="{% url 'courses' %}"><button class="see-all-buttonn">See All</button></a>
     </div>
-    <div class="course__container">
-        {% for course in course %}
-        <article class="course__article animate-card">
-            <div class="course__data">
-                <img src="{{ course.image.url }}" alt="course image" class="course__img">
-                <h1 class="card__title">{{ course.course_name }}</h1>
-                <p class="course__description"><i class="fa-solid fa-clock"> </i> {{course.course_duration}} Online & Offline Training</p>
-                <div class="buttonss">
-                    <button style="border:none;" class="brochure-btnnn">
-                        <a href="{% url 'broucher' course.id %}" id="Download Brochure">Download Brochure <i class="fa-regular fa-file"></i></a>
-                    </button>
-                   <a style="text-decoration:none;" href="{% url 'detail' course.id %}"> <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button> </a>                     
-                </div>
+<div class="course__container">
+    {% for course in course %}
+    <article class="course__article animate-card">
+        <div class="course__data">
+            {% if course.image %}
+                <img src="{{ course.image.url }}" alt="{{ course.course_name }}" class="course__img">
+            {% else %}
+                <img src="{% static 'images/default-course.jpg' %}" alt="Default course" class="course__img">
+            {% endif %}
+            <h1 class="card__title">{{ course.course_name }}</h1>
+            <p class="course__description"><i class="fa-solid fa-clock"></i> {{course.course_duration}} Online & Offline Training</p>
+            <div class="buttonss">
+                <button style="border:none;" class="brochure-btnnn">
+                    <a href="{% url 'broucher' course.id %}" id="Download Brochure">Download Brochure <i class="fa-regular fa-file"></i></a>
+                </button>
+                <a style="text-decoration:none;" href="{% url 'detail' course.id %}">
+                    <button class="know-more-btnnn">Know More <i class="fa-solid fa-ellipsis"></i></button>
+                </a>                     
             </div>
-        </article>
-        {% endfor %}
-    </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+
 </section>
 
 {% include 'home/parameter.html' %}
-<script src="{%  static 'js/parameter.js' %}" defer></script>
+<script src="{% static 'js/parameter.js' %}" defer></script>
 
 {% include 'home/career.html' %}
-<script src="{%  static 'js/career.js' %}" defer></script>
+<script src="{% static 'js/career.js' %}" defer></script>
 
 {% include 'home/roadmapp.html' %}
 
 {% include 'home/services.html' %}
 
 {% include 'home/course_slider.html' %}
-<script src="{%  static 'js/course_slider.js' %}" defer></script>
+<script src="{% static 'js/course_slider.js' %}" defer></script>
 
 {% include 'home/placement.html' %}
-<script src="{%  static 'js/placement.js' %}" defer></script>
+<script src="{% static 'js/placement.js' %}" defer></script>
 
 {% include 'home/faq.html' %}
-<script src="{%  static 'js/faq.js' %}" defer></script>
+<script src="{% static 'js/faq.js' %}" defer></script>
 
 {% include 'home/companytieups.html' %}
-<script src="{%  static 'js/companytieups.js' %}" defer></script>
+<script src="{% static 'js/companytieups.js' %}" defer></script>
 
 {% include 'home/experts.html' %}
 
 <script>
-    // ScrollReveal Initialization
+    // ScrollReveal Initialization and Slideshow
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize ScrollReveal
         const sr = ScrollReveal({
@@ -173,7 +171,7 @@
             origin: 'bottom',
             distance: '30px',
             duration: 800,
-            interval: 200 // Sequence the animations
+            interval: 200
         });
         
         // Add animations to included templates
@@ -228,22 +226,47 @@
             distance: '30px',
             interval: 200
         });
+
+        // Slideshow for banner images
+const images = document.querySelectorAll('.banner-image');
+let currentIndex = 0;
+let interval; // Declare interval outside so it's accessible
+
+if (images.length > 0) {
+    images[currentIndex].classList.add('active'); // Show the first image
+
+    function showNextImage() {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+    }
+
+    // ❗ Start slideshow after a short delay (3 seconds)
+    setTimeout(() => {
+        interval = setInterval(showNextImage, 6000);
+    }, 3000); // Wait before starting transitions
+
+    // Pause slideshow on form hover
+    const form = document.querySelector('.containerrr');
+    form.addEventListener('mouseenter', () => clearInterval(interval));
+    form.addEventListener('mouseleave', () => {
+        interval = setInterval(showNextImage, 9000);
+    });
+}
+
     });
 
-    // Original popup script
+    // Message handling
     setTimeout(function () {
         var normal = document.getElementById('normal-messages');
         if (normal) normal.style.display = 'none';
-
-        var popup = document.getElementById('popup-messages');
-        if (popup) popup.style.display = 'none';
     }, 3000); 
 
     // Contact popup
     const contactPopup = document.querySelector(".contact-popup");
     const closeBtn = document.querySelector(".close");
-    const form = document.querySelector("form");
-    const mobileInput = document.querySelector("input[name='mobile']");
+    const form = document.querySelector(".contact-popup form");
+    const mobileInput = document.querySelector(".contact-popup input[name='mobile']");
     const errorMessage = document.querySelector(".formm-group .error");
     
     // Popup Show after 8 Seconds
@@ -285,14 +308,6 @@
         }
     });
     
-    // Message Hide Automatically After 3 Seconds
-    setTimeout(() => {
-        let msg = document.querySelector("#messages");
-        if (msg) {
-            msg.style.display = "none";
-        }
-    }, 3000);
-    
     // Menu toggle
     document.addEventListener("DOMContentLoaded", function () {
         const menuContainer = document.querySelector(".menu-container");
@@ -323,9 +338,7 @@
 
 <!-- Additional scroll animations for included templates -->
 <script>
-    // Add animation classes to included templates
     document.addEventListener('DOMContentLoaded', function() {
-        // Add animation classes to parameter.html elements
         const parameterSection = document.querySelector('.parameter-section');
         if (parameterSection) {
             parameterSection.classList.add('animate-fade-up');
@@ -333,7 +346,6 @@
             parameterItems.forEach(item => item.classList.add('animate-card'));
         }
         
-        // Add animation classes to career.html elements
         const careerSection = document.querySelector('.career-section');
         if (careerSection) {
             careerSection.classList.add('animate-fade-up');
@@ -343,7 +355,6 @@
             careerCards.forEach(card => card.classList.add('animate-card'));
         }
         
-        // Add animation classes to roadmapp.html elements
         const roadmapSection = document.querySelector('.roadmap-section');
         if (roadmapSection) {
             roadmapSection.classList.add('animate-fade-up');
@@ -354,7 +365,6 @@
             });
         }
         
-        // Add animation classes to services.html elements
         const servicesSection = document.querySelector('.services-section');
         if (servicesSection) {
             servicesSection.classList.add('animate-fade-up');
@@ -364,7 +374,6 @@
             serviceCards.forEach(card => card.classList.add('animate-card'));
         }
         
-        // Add animation classes to course_slider.html elements
         const sliderSection = document.querySelector('.course-slider-section');
         if (sliderSection) {
             sliderSection.classList.add('animate-fade-up');
@@ -372,7 +381,6 @@
             sliderItems.forEach(item => item.classList.add('animate-card'));
         }
         
-        // Add animation classes to placement.html elements
         const placementSection = document.querySelector('.placement-section');
         if (placementSection) {
             placementSection.classList.add('animate-fade-up');
@@ -380,7 +388,6 @@
             testimonials.forEach(testimonial => testimonial.classList.add('animate-card'));
         }
         
-        // Add animation classes to faq.html elements
         const faqSection = document.querySelector('.faq-section');
         if (faqSection) {
             faqSection.classList.add('animate-fade-up');
@@ -388,7 +395,6 @@
             faqItems.forEach(item => item.classList.add('animate-card'));
         }
         
-        // Add animation classes to companytieups.html elements
         const companySection = document.querySelector('.company-tieups-section');
         if (companySection) {
             companySection.classList.add('animate-fade-up');
@@ -396,7 +402,6 @@
             companyLogos.forEach(logo => logo.classList.add('animate-card'));
         }
         
-        // Add animation classes to experts.html elements
         const expertsSection = document.querySelector('.experts-section');
         if (expertsSection) {
             expertsSection.classList.add('animate-fade-up');

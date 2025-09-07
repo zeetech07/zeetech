@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Python Full Stack? - ZeeTech Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #ff5252;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100px;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .intro-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            main { padding: 1rem; }
+            .card-container { grid-template-columns: 1fr; }
+            .intro-image { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h2>What is Full Stack Development with Python?</h2>
+            <p>Full Stack Development with Python is the process of building both the front-end and back-end components of web applications using Python and related technologies. At ZeeTech Academy, we train you to create robust, user-friendly web solutions from scratch.</p>
+            <p>It involves designing interactive user interfaces and developing server-side logic, databases, and APIs, enabling end-to-end web development with Python’s versatile ecosystem.</p>
+            <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Python Full Stack development coding on laptop" class="intro-image">
+        </section>
+
+        <section id="components">
+            <h2>Core Responsibilities of a Full Stack Developer</h2>
+            <ul>
+                <li><strong>Front-End Development:</strong> Creating responsive user interfaces using HTML, CSS, JavaScript, and frameworks like Django templates or Flask.</li>
+                <li><strong>Back-End Development:</strong> Building server-side logic and APIs using Python frameworks like Django or Flask.</li>
+                <li><strong>Database Management:</strong> Designing and querying databases using SQL or NoSQL systems like PostgreSQL or MongoDB.</li>
+                <li><strong>Integration:</strong> Connecting front-end and back-end components for seamless functionality.</li>
+                <li><strong>Deployment & Maintenance:</strong> Deploying applications to servers and ensuring ongoing performance.</li>
+            </ul>
+        </section>
+
+        <section id="careers">
+            <h2>Python Full Stack Career Paths</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Full Stack Developer</h3>
+                    <p>Builds and maintains both front-end and back-end components of web applications.</p>
+                </div>
+                <div class="card">
+                    <h3>Back-End Developer</h3>
+                    <p>Focuses on server-side logic, APIs, and database management using Python.</p>
+                </div>
+                <div class="card">
+                    <h3>Web Developer</h3>
+                    <p>Specializes in creating dynamic, user-friendly websites with Python frameworks.</p>
+                </div>
+                <div class="card">
+                    <h3>DevOps Engineer</h3>
+                    <p>Manages deployment, scaling, and automation of Python-based applications.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <h2>Applications of Python Full Stack Development</h2>
+            <p>Python Full Stack Development powers diverse industries:</p>
+            <ul>
+                <li><strong>E-commerce:</strong> Building online stores with seamless user experiences and secure back-ends.</li>
+                <li><strong>Startups:</strong> Developing scalable web apps for rapid business growth.</li>
+                <li><strong>Education:</strong> Creating platforms for online learning and course management.</li>
+                <li><strong>Finance:</strong> Designing secure applications for banking and financial services.</li>
+            </ul>
+        </section>
+
+        <section id="why-learn">
+            <h2>Become a Python Full Stack Developer with ZeeTech Academy</h2>
+            <p>ZeeTech Academy’s Python Full Stack courses prepare you for a versatile career with:</p>
+            <ul>
+                <li>Hands-on projects building real-world web applications.</li>
+                <li>Mentorship from experienced full stack developers.</li>
+                <li>Flexible online and in-person learning options.</li>
+                <li>Career support, including portfolio development and job placement.</li>
+            </ul>
+            <a href="https://zeetechacademy.com/courses" class="cta">Start Your Python Full Stack Journey</a>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for internal links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

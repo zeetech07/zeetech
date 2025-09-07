@@ -1,0 +1,256 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is Cloud Computing? - ZeeTech Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #ff5252;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100px;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .intro-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            main { padding: 1rem; }
+            .card-container { grid-template-columns: 1fr; }
+            .intro-image { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h2>What is Cloud Computing?</h2>
+            <p>Cloud Computing refers to the delivery of computing services—such as servers, storage, databases, networking, software, and analytics—over the internet ("the cloud"). At ZeeTech Academy, we empower you to master cloud technologies and build scalable, efficient systems.</p>
+            <p>Cloud Computing enables businesses to access powerful resources on-demand, reducing costs and increasing flexibility across industries.</p>
+            <img src="https://images.pexels.com/photos/249203/pexels-photo-249203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cloud computing server room" class="intro-image">
+        </section>
+
+        <section id="components">
+            <h2>Core Components of Cloud Computing</h2>
+            <ul>
+                <li><strong>Infrastructure as a Service (IaaS):</strong> Provides virtualized computing resources like servers and storage.</li>
+                <li><strong>Platform as a Service (PaaS):</strong> Offers platforms for developing and deploying applications.</li>
+                <li><strong>Software as a Service (SaaS):</strong> Delivers software applications over the internet.</li>
+                <li><strong>Storage and Databases:</strong> Scalable solutions for data management and storage.</li>
+                <li><strong>Networking:</strong> Secure and efficient network services for cloud connectivity.</li>
+            </ul>
+        </section>
+
+        <section id="careers">
+            <h2>Cloud Computing Career Paths</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Cloud Architect</h3>
+                    <p>Designs and oversees cloud infrastructure to meet business needs.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Engineer</h3>
+                    <p>Implements and maintains cloud systems and applications.</p>
+                </div>
+                <div class="card">
+                    <h3>DevOps Engineer</h3>
+                    <p>Combines development and operations to streamline cloud deployments.</p>
+                </div>
+                <div class="card">
+                    <h3>Cloud Security Specialist</h3>
+                    <p>Ensures the security of cloud systems and data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <h2>Applications of Cloud Computing</h2>
+            <p>Cloud Computing transforms industries by enabling:</p>
+            <ul>
+                <li><strong>Business Scalability:</strong> Rapidly scaling resources to meet demand.</li>
+                <li><strong>Data Analytics:</strong> Processing large datasets with cloud-based tools.</li>
+                <li><strong>Software Development:</strong> Streamlining app development with PaaS.</li>
+                <li><strong>Disaster Recovery:</strong> Ensuring data backup and business continuity.</li>
+            </ul>
+        </section>
+
+        <section id="why-learn">
+            <h2>Become a Cloud Expert with ZeeTech Academy</h2>
+            <p>ZeeTech Academy’s Cloud Computing courses prepare you for a dynamic career with:</p>
+            <ul>
+                <li>Hands-on projects with leading cloud platforms like AWS, Azure, and Google Cloud.</li>
+                <li>Guidance from certified cloud professionals.</li>
+                <li>Flexible learning paths for beginners and advanced learners.</li>
+                <li>Career support, including certifications and job placement assistance.</li>
+            </ul>
+            <a href="{% url 'courses' %}" class="cta">Explore Our Course</a>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for internal links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

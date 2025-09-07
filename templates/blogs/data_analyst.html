@@ -1,0 +1,257 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+{% load static %}
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is a Data Analyst? - ZeeTech Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f7fa;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #d32f2f;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            width: 50px;
+            height: 4px;
+            background: #ff5252;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        h2:hover::after {
+            width: 100px;
+        }
+
+        p, ul {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        ul li::before {
+            content: '➜';
+            position: absolute;
+            left: 0;
+            color: #d32f2f;
+        }
+
+        /* Card Styles */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            color: #d32f2f;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Button */
+        .cta {
+            display: inline-block;
+            background: #d32f2f;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+
+        /* Image Styling */
+        .intro-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin: 1.5rem auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .intro-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 { font-size: 1.5rem; }
+            main { padding: 1rem; }
+            .card-container { grid-template-columns: 1fr; }
+            .intro-image { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="intro">
+            <h2>What is a Data Analyst?</h2>
+            <p>A Data Analyst is a professional who collects, processes, and analyzes data to provide actionable insights that drive business decisions. At ZeeTech Academy, we train you to excel in transforming raw data into meaningful strategies.</p>
+            <p>Data Analysts bridge the gap between data and decision-making, using tools and techniques to uncover trends, patterns, and opportunities in various industries.</p>
+            <img src="https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Data Analyst working with financial charts" class="intro-image">
+        </section>
+
+        <section id="components">
+            <h2>Core Responsibilities of a Data Analyst</h2>
+            <ul>
+                <li><strong>Data Collection:</strong> Gathering data from databases, spreadsheets, or APIs.</li>
+                <li><strong>Data Cleaning:</strong> Ensuring data accuracy by removing errors and inconsistencies.</li>
+                <li><strong>Data Analysis:</strong> Applying statistical methods to identify key trends and correlations.</li>
+                <li><strong>Data Visualization:</strong> Creating charts, dashboards, and reports to communicate findings.</li>
+                <li><strong>Business Collaboration:</strong> Working with stakeholders to translate insights into strategies.</li>
+            </ul>
+        </section>
+
+        <section id="careers">
+            <h2>Data Analyst Career Paths</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3>Business Analyst</h3>
+                    <p>Focuses on analyzing business processes and recommending data-driven improvements.</p>
+                </div>
+                <div class="card">
+                    <h3>Financial Analyst</h3>
+                    <p>Specializes in financial data to guide investment and budgeting decisions.</p>
+                </div>
+                <div class="card">
+                    <h3>Marketing Analyst</h3>
+                    <p>Analyzes customer data to optimize marketing campaigns and strategies.</p>
+                </div>
+                <div class="card">
+                    <h3>Operations Analyst</h3>
+                    <p>Improves operational efficiency through data analysis and process optimization.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <h2>Applications of Data Analysis</h2>
+            <p>Data Analysts make significant impacts across industries:</p>
+            <ul>
+                <li><strong>Retail:</strong> Optimizing inventory and predicting customer demand.</li>
+                <li><strong>Finance:</strong> Assessing risks and forecasting market trends.</li>
+                <li><strong>Healthcare:</strong> Improving patient outcomes through data-driven insights.</li>
+                <li><strong>E-commerce:</strong> Enhancing user experience with personalized recommendations.</li>
+            </ul>
+        </section>
+
+        <section id="why-learn">
+            <h2>Become a Data Analyst with ZeeTech Academy</h2>
+            <p>ZeeTech Academy’s Data Analyst courses prepare you for a rewarding career with:</p>
+            <ul>
+                <li>Practical projects using real-world datasets.</li>
+                <li>Mentorship from experienced analysts and industry professionals.</li>
+                <li>Flexible online and in-person learning options.</li>
+                <li>Comprehensive career support, including resume building and job placement.</li>
+            </ul>
+            <a href="{% url 'courses' %}" class="cta">Explore Our Course</a>
+        </section>
+    </main>
+
+    <script>
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+
+        // Smooth scroll for internal links (if any)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+{% endblock %}

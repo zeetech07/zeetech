@@ -1,42 +1,29 @@
- {% load static %}
- <br>
- 
- <div class="containerss">
+{% load static %}
+<br>
+
+<div class="containerss">
     <h1 style="color:black;">Meet Our Experts</h1>
     <br>
     <br>
     <br>
     <div class="slider-wrapper">
-         
-    
-      <div class="slider">
-        {% for i in instructors%}
-  
-        <div class="slider-content" style="min-width: 290px;">
-        
-          <!-- First Loop -->
-          <div class="card mx-2">
-            <img src="{{i.image.url}}" alt="Yashwardhan Singh">
-            <h3 style="color:black;">Expert Name : {{ i.instructor_name }}</h3>
-            <p style="color:black;">Expert in : {{ i.designation }}</p>
-            <p style="color:black;" id="experience">Experience: {{ i.instructor_Exp }}</p>
-            <p style="color:black;" id="studentss">No of Students Trained: {{ i.no_of_student }}</p>
-          </div>
-        
-       
+        <div class="slider">
+            {% for i in instructors %}
+                <div class="slider-content" style="min-width: 290px;">
+                    <!-- Card -->
+                    <div class="card mx-2">
+                        <img src="{{ i.image.url }}" alt="{{ i.instructor_name|default:'No Name' }}">
+                        <h3 style="color:black;">Expert Name: {{ i.instructor_name|default:'Unknown' }}</h3>
+                        <p style="color:black;">Expert in: {{ i.designation }}</p>
+                        <p style="color:black;">Experience: {{ i.instructor_Exp }} years</p>
+                        {% if 'trainer' in i.designation|lower %}
+                            <p style="color:black;">No of Students Trained: {{ i.no_of_student }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
-          {% endfor %}
-      </div>
-
-     
-     
     </div>
-  </div> 
-  <br>
-  <br>
-
-  
- 
-
-
- 
+</div>
+<br>
+<br>
