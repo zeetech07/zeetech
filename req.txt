@@ -1,0 +1,13 @@
+asgiref==3.8.1
+Django==5.2
+django-autoslug==1.9.9
+django-cities-light==3.10.1
+gunicorn==23.0.0
+packaging==25.0
+pillow==11.2.1
+progressbar2==4.5.0
+python-utils==3.9.1
+pytz==2025.2
+sqlparse==0.5.3
+typing_extensions==4.13.2
+Unidecode==1.4.0
