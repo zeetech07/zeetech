@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-73sl!bnhrgt5-rk$$+(aqywq$))$+$d%@wbw3nyu^s!cfsa#n@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['zeetechacademy.in', 'www.zeetechacademy.in', '3.109.124.219', 'localhost', '127.0.0.1']
 
 
 # Application definition
