@@ -19,7 +19,7 @@ echo "User: $USER"
 # 2. Update System and Install System Dependencies
 echo "Installing system dependencies..."
 sudo apt update
-sudo apt install -y python3-pip python3-venv python3-dev nginx curl
+sudo apt install -y python3-pip python3-venv python3-dev nginx curl libjpeg-dev zlib1g-dev
 
 # 3. Create and Activate Virtual Environment
 echo "Setting up Virtual Environment..."
